@@ -39,18 +39,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText pUsername = findViewById(R.id.loginName);
                 EditText pPassword = findViewById(R.id.loginPassword);
-                if(isValidCredentials(pUsername.getText().toString(),pPassword.getText().toString()))
-                {
-
-                }
+//                if(isValidCredentials(pUsername.getText().toString(),pPassword.getText().toString()))
+//                {
+//
+//                }
             }
         });
 
 
     }
 
-    public boolean isValidCredentials(String username, String password)
-    {
-
-    }
+//    public boolean isValidCredentials(String username, String password)
+//    {
+//
+//    }
 }
