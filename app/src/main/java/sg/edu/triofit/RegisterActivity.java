@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        //if user click on login it will bring them to the login page
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

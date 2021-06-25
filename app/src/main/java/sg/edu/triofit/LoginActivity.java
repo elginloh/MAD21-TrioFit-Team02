@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView register = findViewById(R.id.register);
         register.setTextColor(Color.BLUE);
 
+        //if user click on register it will bring them to the register page
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    //this function is to check whether username and password both matches the database information
     public boolean isValidCredentials(String username, String password) {
         UserData dbData = dbHandler.findUser(username, "");
         if (dbData == null) {
