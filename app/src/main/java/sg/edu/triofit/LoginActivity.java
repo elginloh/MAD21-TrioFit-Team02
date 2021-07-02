@@ -14,7 +14,9 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     DBHandler dbHandler = new DBHandler(this, null ,null, 1);
-
+    //test
+    //retest
+    //reretest
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 
