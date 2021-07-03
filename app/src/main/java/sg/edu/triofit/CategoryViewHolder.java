@@ -1,14 +1,40 @@
 package sg.edu.triofit;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
-public class CategoryViewHolder extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.category_view_holder);
+public class CategoryViewHolder extends RecyclerView.ViewHolder {
+
+    private final ActivityAdapter adapter;
+
+    final TextView categoryName;
+    final RecyclerView rvCategory;
+    final List<String> categoryList;
+
+    public CategoryViewHolder(@NonNull View itemView) {
+        super(itemView);
+        categoryName = itemView.findViewById(R.id.Category);
+        rvCategory = itemView.findViewById(R.id.recyclerView1);
+
+        categoryList = new ArrayList<>();
+        adapter = new ActivityAdapter(categoryList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+        rvCategory.setLayoutManager(layoutManager);
+        rvCategory.setAdapter(adapter);
+    }
+
+    void setCategoryList(List<String> categoryList){
+        this.categoryList.clear();
+        this.categoryList.addAll(categoryList);
+        adapter.notifyDataSetChanged();
     }
 }
