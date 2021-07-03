@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrioFit">
         <activity android:name=".ActivityViewHolder"></activity>
-        <activity android:name=".CatagoryViewHolder" />
+        <activity android:name=".CategoryViewHolder" />
         <activity android:name=".CatalougeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
