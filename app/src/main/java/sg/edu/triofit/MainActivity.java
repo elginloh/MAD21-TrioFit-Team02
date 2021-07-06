@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeusername.setText("Welcome back, " + "elgin");
         bmistatus.setText(bmiCheck(bmi));
         exerInfo.setText("Ever want to do exercises but do not know how to start? Fear not, we will be providing information and tutorial videos for you to follow through to exercise.");
+        bmiInfo.setText("Here are information that would show you the current bmi status and information and some information in how you can see on helping in keeping your bmi in ideal range.");
     }
 
     public String bmiCheck(Double bmi){
