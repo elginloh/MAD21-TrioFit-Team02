@@ -225,6 +225,66 @@ public class DBHandler extends SQLiteOpenHelper {
 //        return list;
 //    }
 
+    public ArrayList<Category> getAllTitle(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Category", null);
+        ArrayList<Category> list = new ArrayList<>();
+        while(cursor.moveToFirst()){
+            Category c = new Category();
+            c.setCategoryName(cursor.getString(0));
+            list.add(c);
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
 
+    public ArrayList<Activity> getAllWO(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Workout", null);
+        ArrayList<Activity> list = new ArrayList<>();
+        while(cursor.moveToFirst()){
+           Activity a = new Activity();
+           a.setName(cursor.getString(0));
+           a.setImage(cursor.getString(1));
+           a.setVideo(cursor.getString(2));
+           list.add(a);
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Activity> getAllRun(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Run", null);
+        ArrayList<Activity> list = new ArrayList<>();
+        while(cursor.moveToFirst()){
+            Activity a = new Activity();
+            a.setName(cursor.getString(0));
+            a.setImage(cursor.getString(1));
+            a.setVideo(cursor.getString(2));
+            list.add(a);
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Activity> getAllYoga(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Yoga", null);
+        ArrayList<Activity> list = new ArrayList<>();
+        while(cursor.moveToFirst()){
+            Activity a = new Activity();
+            a.setName(cursor.getString(0));
+            a.setImage(cursor.getString(1));
+            a.setVideo(cursor.getString(2));
+            list.add(a);
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
 
 }
