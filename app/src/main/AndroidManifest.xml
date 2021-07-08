@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrioFit">
-        <activity android:name=".ActivityViewHolder"></activity>
-        <activity android:name=".CategoryViewHolder" />
-        <activity android:name=".CatalougeActivity" />
+<!--        <activity android:name=".ActivityViewHolder"></activity>-->
+<!--        <activity android:name=".CategoryViewHolder" />-->
+        <activity android:name=".CatalogueActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">

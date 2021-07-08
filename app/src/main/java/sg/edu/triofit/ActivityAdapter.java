@@ -1,5 +1,6 @@
 package sg.edu.triofit;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,10 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
     private final List<String> activityList;
 
+
+
     public ActivityAdapter(List<String> activityList){
+
         this.activityList = activityList;
     }
 
@@ -28,6 +32,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
     public void onBindViewHolder(@NonNull ActivityViewHolder actHolder, int position){
         String activity = activityList.get(position);
         actHolder.activity.setText(activity);
+//        DBHandler dbHandler = new DBHandler(this.context,null,null,1);
+//        activityList = dbHandler.ge
     }
 
     @Override

@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Category {
     private String CategoryName;
-    private ArrayList<String> CategoryList = new ArrayList();
+    private ArrayList<String> Category = new ArrayList();
 
     public Category() {
     }
 
-    public Category(String categoryName, ArrayList<String> categoryList) {
+    public Category(String categoryName, ArrayList<String> category) {
         this.CategoryName = categoryName;
-        for(int i=0; i < categoryList.size(); i ++)
+        for(int i=0; i < category.size(); i ++)
         {
-            this.CategoryList.add(categoryList.get(i));
+            this.Category.add(category.get(i));
         }
     }
 
@@ -25,11 +25,11 @@ public class Category {
         CategoryName = categoryName;
     }
 
-    public ArrayList<String> getCategoryList() {
-        return CategoryList;
+    public ArrayList<String> getCategory() {
+        return Category;
     }
 
-    public void setCategoryList(ArrayList<String> categoryList) {
-        CategoryList = categoryList;
+    public void setCategory(ArrayList<String> categoryList) {
+        Category = categoryList;
     }
 }
