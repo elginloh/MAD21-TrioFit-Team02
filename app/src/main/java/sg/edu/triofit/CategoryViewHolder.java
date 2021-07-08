@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,7 +21,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     public CategoryViewHolder(@NonNull View itemView) {
         super(itemView);
         categoryName = itemView.findViewById(R.id.Category);
-        rvCategory = itemView.findViewById(R.id.recyclerView1);
+        rvCategory = itemView.findViewById(R.id.recyclerView);
 
         categoryList = new ArrayList<>();
         adapter = new ActivityAdapter(categoryList);
