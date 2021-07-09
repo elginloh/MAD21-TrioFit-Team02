@@ -6,6 +6,7 @@ public class Category {
     private String CategoryName;
     private ArrayList<String> Category = new ArrayList();
 
+
     public Category() {
     }
 
