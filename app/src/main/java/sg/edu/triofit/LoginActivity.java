@@ -34,8 +34,6 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etUsername,etPassword;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,16 +72,16 @@ public class LoginActivity extends AppCompatActivity {
 //                } else {
 //                    Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
 //                }
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
 
-                isUser();
+                isUser(username,password);
 
             }
         });
 
     }
-    private void isUser() {
-        String username = etUsername.getText().toString();
-        String password = etPassword.getText().toString();
+    private void isUser(String username,String password) {
 
 //        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("User");
 
