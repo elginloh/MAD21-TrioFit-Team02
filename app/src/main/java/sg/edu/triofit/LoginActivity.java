@@ -39,11 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
-
-
-
         etUsername = findViewById(R.id.loginName);
         etPassword = findViewById(R.id.loginPassword);
 
@@ -112,7 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
 
-                    } else {
+                    }
+                    else {
                         etPassword.setError("Wrong Password!");
                         etPassword.requestFocus();
                     }

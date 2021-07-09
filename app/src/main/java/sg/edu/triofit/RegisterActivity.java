@@ -51,42 +51,52 @@ public class RegisterActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 String email = etEmail.getText().toString();
-                float height = Float.parseFloat(etHeight.getText().toString());
-                float weight = Float.parseFloat(etWeight.getText().toString());
+
                 String age = etAge.getText().toString();
 
-                float bmi = weight / (height*height);
 
-                saveData(username,password,email,age,height,weight,bmi);
-                Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                startActivity(intent);
+                String confirmPassword = etCfmPassword.getText().toString();
 
+                if (password.equals(confirmPassword))
+                {
+                    if(TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) ||TextUtils.isEmpty(etAge.getText().toString())
+                            || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()))
+                    {
+                        Toast.makeText(RegisterActivity.this,"Please fill in all boxes", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        if (email.trim().matches(emailPattern)) //if email is in correct format
+                        {
+                            if(etPassword.getText().toString().equals(etCfmPassword.getText().toString())) // if password matches cfm password
+                            {
+                                float height = Float.parseFloat(etHeight.getText().toString());
+                                float weight = Float.parseFloat(etWeight.getText().toString());
+                                float bmi = weight / (height*height);
+
+                                saveData(username,password,email,age,height,weight,bmi);
+                                Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else
+                {
+                    Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+                }
 
 //                if(etPassword.getText().toString().equals((etCfmPassword.getText().toString())))
 //                {
-//                    if(TextUtils.isEmpty(username) || TextUtils.isEmpty(etHeight.getText()) || TextUtils.isEmpty(etWeight.getText()) || TextUtils.isEmpty(age))
-//                    {
-//                        if(email.matches(emailPattern))
-//                        {
-//                            saveData(username);
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                    }
-//                    else
-//                    {
-//                        Toast.makeText(RegisterActivity.this, "Please fill in all boxes", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                }
-//                else
-//                {
-//                    Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
-//                }
 //                UserData userInfo = dbHandler.findUser(etUsername.getText().toString(), etEmail.getText().toString()); // retrieve user information/null
 //                if(TextUtils.isEmpty(etUsername.getText()) || TextUtils.isEmpty(etEmail.getText()) || TextUtils.isEmpty(etDOB.getText()) || TextUtils.isEmpty(etPassword.getText()) || TextUtils.isEmpty(etCfmPassword.getText())){
 //                    Toast.makeText(RegisterActivity.this, "Please fill in all boxes", Toast.LENGTH_SHORT).show();
