@@ -13,11 +13,11 @@ import java.util.List;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
-//    private final ActivityAdapter adapter;
+    private final ActivityAdapter adapter;
 
     final TextView categoryName;
     final RecyclerView rvCategory;
-//    final List<Activity> categoryList;
+    final List<String> categoryList;
 //    Context context;
 
     public CategoryViewHolder(@NonNull View itemView) {
@@ -25,17 +25,17 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         categoryName = itemView.findViewById(R.id.Category);
         rvCategory = itemView.findViewById(R.id.recyclerView);
 
-//        categoryList = new ArrayList<>();
-//        adapter = new ActivityAdapter(categoryList,context);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
-//
-//        rvCategory.setLayoutManager(layoutManager);
-//        rvCategory.setAdapter(adapter);
+        categoryList = new ArrayList<>();
+        adapter = new ActivityAdapter(categoryList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+        rvCategory.setLayoutManager(layoutManager);
+        rvCategory.setAdapter(adapter);
     }
 
-//    void setCategoryList(List<String> categoryList){
-//        this.categoryList.clear();
-//        this.categoryList.addAll(categoryList);
-//        adapter.notifyDataSetChanged();
-//    }
+    void setCategoryList(List<String> categoryList){
+        this.categoryList.clear();
+        this.categoryList.addAll(categoryList);
+        adapter.notifyDataSetChanged();
+    }
 }

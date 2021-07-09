@@ -1,31 +1,40 @@
 package sg.edu.triofit;
 
 public class Activity {
-
-    private String imageURL;
-    private String name;
+    private String Name;
+    private String Image;
+    private String Video;
 
     public Activity() {
     }
 
-    public Activity(String imageURL, String name) {
-        this.imageURL = imageURL;
-        this.name = name;
+    public Activity(String name, String image, String video) {
+        Name = name;
+        Image = image;
+        Video = video;
     }
 
-    public  String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
-    public  String getName() {
-        return name;
+    public String getName() {
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public String getVideo() {
+        return Video;
+    }
+
+    public void setVideo(String video) {
+        Video = video;
     }
 }
