@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class ActivityViewHolder extends RecyclerView.ViewHolder {
 
-    final TextView activity;
+    TextView activity;
     ImageView imageView;
 
     public ActivityViewHolder(@NonNull View itemView){

@@ -1,17 +1,32 @@
 package sg.edu.triofit;
 
+import java.util.ArrayList;
+
 public class Activity {
     private String Name;
     private String Image;
     private String Video;
+    private  ArrayList<Activity> activities = new ArrayList();
 
     public Activity() {
     }
 
-    public Activity(String name, String image, String video) {
+//    public Activity(String name, String image, String video) {
+//        Name = name;
+//        Image = image;
+//        Video = video;
+//    }
+
+
+    public Activity(String name, String image, String video, ArrayList<Activity> activities) {
         Name = name;
         Image = image;
         Video = video;
+        this.activities = activities;
+        for(int i=0; i < activities.size(); i ++)
+        {
+            this.activities.add(activities.get(i));
+        }
     }
 
     public String getName() {

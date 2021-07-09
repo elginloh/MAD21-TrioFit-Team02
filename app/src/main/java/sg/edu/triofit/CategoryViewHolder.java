@@ -13,12 +13,15 @@ import java.util.List;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
-    private final ActivityAdapter adapter;
+    ActivityAdapter adapter;
 
-    final TextView categoryName;
-    final RecyclerView rvCategory;
-    final List<String> categoryList;
+    TextView categoryName;
+    RecyclerView rvCategory;
+    List<String> categoryList;
+//    List<Activity> activityList;
 //    Context context;
+
+
 
     public CategoryViewHolder(@NonNull View itemView) {
         super(itemView);
