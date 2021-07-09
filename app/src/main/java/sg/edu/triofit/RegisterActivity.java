@@ -58,6 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
                 float bmi = weight / (height*height);
 
                 saveData(username,password,email,age,height,weight,bmi);
+                Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(intent);
+
 
 //                if(etPassword.getText().toString().equals((etCfmPassword.getText().toString())))
 //                {
@@ -136,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
                 UserData user = new UserData(username,password,email,age,height,weight,bmi);
                 mDatabase.child("User").child(username).setValue(user);
             }
+
 
         });
 
