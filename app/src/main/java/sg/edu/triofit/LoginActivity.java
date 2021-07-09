@@ -38,33 +38,33 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText etUsername = findViewById(R.id.loginName);
-                EditText etPassword = findViewById(R.id.loginPassword);
-                if (isValidCredentials(etUsername.getText().toString(), etPassword.getText().toString())) {
-                    Toast.makeText(LoginActivity.this, "Valid Credentials", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                }
+//                EditText etUsername = findViewById(R.id.loginName);
+//                EditText etPassword = findViewById(R.id.loginPassword);
+//                if (isValidCredentials(etUsername.getText().toString(), etPassword.getText().toString())) {
+//                    Toast.makeText(LoginActivity.this, "Valid Credentials", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                    startActivity(intent);
+//                } else {
+//                    Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
     }
 
     //this function is to check whether username and password both matches the database information
-    public boolean isValidCredentials(String username, String password) {
-        UserData dbData = dbHandler.findUser(username, "");
-        if (dbData == null) {
-            Toast.makeText(this, "User does not exist. Please Sign Up", Toast.LENGTH_SHORT).show();
-            return false;
-        } else {
-            if (dbData.getUsername().equals(username) && dbData.getPassword().equals(password)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
+//    public boolean isValidCredentials(String username, String password) {
+//        UserData dbData = dbHandler.findUser(username, "");
+//        if (dbData == null) {
+//            Toast.makeText(this, "User does not exist. Please Sign Up", Toast.LENGTH_SHORT).show();
+//            return false;
+//        } else {
+//            if (dbData.getUsername().equals(username) && dbData.getPassword().equals(password)) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+//    }
 
 }
