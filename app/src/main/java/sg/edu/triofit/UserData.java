@@ -9,6 +9,7 @@ public class UserData {
     private String Age;
     private float height;
     private float weight;
+    private float bmi;
 
     public String getUsername() {
         return Username;
@@ -58,15 +59,24 @@ public class UserData {
         this.weight = weight;
     }
 
+    public float getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(float bmi) {
+        this.bmi = bmi;
+    }
+
     public UserData() {
     }
 
-    public UserData(String username, String password, String email, String age, float height, float weight) {
+    public UserData(String username, String password, String email, String age, float height, float weight,float bmi) {
         Username = username;
         Password = password;
         Email = email;
         Age = age;
         this.height = height;
         this.weight = weight;
+        this.bmi = bmi;
     }
 }
