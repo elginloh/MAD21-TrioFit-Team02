@@ -2,7 +2,10 @@ package sg.edu.triofit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +19,7 @@ public class Profile extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         TextView accountName, accountNumber, accountEmail, accountAge, accountBMI, accountHeight, accountWeight, profileName, profileEmail;
-
+        ImageView changePfp;
         /*---------------Variables---------------*/
 
         //Retrieve from layout
@@ -29,6 +32,7 @@ public class Profile extends AppCompatActivity {
         accountWeight = findViewById(R.id.accountWeight);
         profileName = findViewById(R.id.profileName);
         profileEmail = findViewById(R.id.profileEmail);
+        changePfp = findViewById(R.id.changePfp);
 
         //set account information
         profileName.setText("Elgin Loh");
@@ -40,6 +44,8 @@ public class Profile extends AppCompatActivity {
         accountBMI.setText("24");
         accountHeight.setText("173CM");
         accountWeight.setText("73KG");
+
+        //set onclicks
 
     }
 }
