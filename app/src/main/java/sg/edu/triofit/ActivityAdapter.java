@@ -2,9 +2,11 @@ package sg.edu.triofit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.Resource;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -26,19 +29,19 @@ import java.util.List;
 
 public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
-//    List<Activity> activityList;
-//
+    List<Activity> activityImageList;
+
        Context context;
 
        List<String> activityList;
 
-    public ActivityAdapter(List<String> activityList) {
+
+
+    public ActivityAdapter(List<String> activityList , List<Activity> activityImageList, Context context){
+        this.context = context;
         this.activityList = activityList;
+        this.activityImageList = activityImageList;
     }
-    //    public ActivityAdapter(List<Activity> activityList, Context context){
-//        this.context = context;
-//        this.activityList = activityList;
-//    }
 
 
     @NonNull
@@ -54,18 +57,12 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
         String activity = activityList.get(position);
-//        String urlList = activityList.indexOf(2).get(position);
+        String imageName = activityImageList.get(position).getImage();
+
         actHolder.activity.setText(activity);
-//        Drawable drawable = loadImageFromWeb("https://www.ihrsa.org/uploads/Articles/Column-Width/equipment_triggerpoint-roller_column.jpg");
-//        actHolder.imageView.setImageDrawable(drawable);
-
-//        actHolder.imageView.setImageURI(Uri.parse("https://www.active.com/Assets/Running/460/Hill-Runner-Silhouette.jpg"));
-//        Uri.parse(activity)
-
-//        DBHandler dbHandler = new DBHandler(this.context,null,null,1);
-//        activityList = dbHandler.ge
-//
-//        Glide.with(context).load(activityList.get(position).getImage()).into(actHolder.imageView);
+        Log.v("ImageName", imageName);
+        int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
 
         actHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,16 +79,4 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
         return activityList.size();
     }
 
-//    private Drawable loadImageFromWeb(String url) {
-//
-//        try
-//        {
-//            InputStream is = (InputStream) new URL(url).getContent();
-//            Drawable d = Drawable.createFromStream(is, "src name");
-//            return d;
-//        }catch (Exception e) {
-//            System.out.println("Exc="+e);
-//            return null;
-//        }
-//    }
 }

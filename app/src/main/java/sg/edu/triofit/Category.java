@@ -9,13 +9,6 @@ public class Category {
     public Category() {
     }
 
-//    public Category(String categoryName, ArrayList<String> category) {
-//        this.CategoryName = categoryName;
-//        for(int i=0; i < category.size(); i ++)
-//        {
-//            this.Category.add(category.get(i));
-//        }
-//    }
 
 
     public Category(String categoryName, ArrayList<String> category) {

@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -20,15 +22,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public static String CATEGORY = "Category";
     public static String COLUMN_TITLE = "Category Title";
-
-
     public static String COLUMN_NAME = "Activity Name";
+
+    public static String CATEIMAGE = "CateImage";
     public static String COLUMN_IMAGE = "Image";
     public static String COLUMN_VIDEO = "Video";
 
 
 
-    public static int DATABASE_VERSION = 7;
+    public static int DATABASE_VERSION = 13;
 
     public  DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
     {
@@ -41,25 +43,33 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_PASSWORD + " TEXT," + COLUMN_EMAIL + " TEXT," + COLUMN_DATE + " TEXT"+ ")";
         //CREATE TABLE Accounts(Username TEXT, Password TEXT, Email TEXT, Date TEXT)
 
-        String CREATE_CATEGORY_TABLE = "CREATE TABLE " + CATEGORY + "(" + COLUMN_TITLE + "TEXT," + COLUMN_NAME + "TEXT,"  +  COLUMN_IMAGE + "TEXT" + ")";
+        String CREATE_CATEGORY_TABLE = "CREATE TABLE " + CATEGORY + "(" + COLUMN_TITLE + "TEXT," + COLUMN_NAME + "TEXT"  +  ")";
 
-
+        String CREATE_CATEIMAGE_TABLE = "CREATE TABLE " + CATEIMAGE + "(" + COLUMN_IMAGE + "TEXT" + ")";
 
         db.execSQL(CREATE_ACCOUNTS_TABLE);
         db.execSQL(CREATE_CATEGORY_TABLE);
+        db.execSQL(CREATE_CATEIMAGE_TABLE);
 
         String varName1 = ""
-                + "INSERT INTO \"Category\" VALUES ('Workout','Biceps;Triceps;Abdominals;Upper Chest;Lower Chest;','https://www.muscleandfitness.com/wp-content/uploads/2014/09/Muscular-Bodybuilder-Doing-Biceps-Workout-With-A-Bicep-Curl.jpg?quality=86&strip=all;https://www.bodybuilding.com/images/2021/april/triceps-workout-for-beginners-header-830x467.jpg;https://image.freepik.com/free-photo/shirtless-man-working-out-home_186523-389.jpg;https://www.muscleandfitness.com/wp-content/uploads/2018/02/1109-feet-elevated-pushup.jpg?quality=86&strip=all;https://bodybuilding-wizard.com/wp-content/uploads/2015/11/decline-dumbbell-bench-press-guide-1-8.jpg;');";
-
+                + "INSERT INTO \"Category\" VALUES ('Workout','Biceps;Triceps;Abdominals;Upper Chest;Lower Chest;');";
         String varName2 = ""
-                + "INSERT INTO \"Category\" VALUES ('Running tips','Hill Run;Recovery Routine;Running posture;Breathing Method;Marathon;','https://www.active.com/Assets/Running/460/Hill-Runner-Silhouette.jpg;https://www.ihrsa.org/uploads/Articles/Column-Width/equipment_triggerpoint-roller_column.jpg;https://image.freepik.com/free-photo/shirtless-man-working-out-home_186523-389.jpg;https://blog.mapmyrun.com/wp-content/uploads/2020/10/3-Cues-For-Perfect-Running-Posture.jpg;https://runnersconnect.net/wp-content/uploads/2011/08/THE-MOST-IMPORTANT-11.png;https://www.justrunlah.com/wp-content/uploads/2017/05/Running.jpg;');";
-
+                + "INSERT INTO \"Category\" VALUES ('Running tips','Hill Run;Recovery Routine;Running posture;Breathing Method;Marathon;');";
         String varName3 = ""
-                + "INSERT INTO \"Category\" VALUES ('Yoga','Lower Back;Hip;Hamstring;Muscle Recovery;Deep Core;','https://images.everydayhealth.com/images/pain-management/back-pain/7-best-yoga-poses-to-soothe-back-pain-08-1440x810.jpg;https://media.self.com/photos/57d8a76846d0cb351c8c57a3/master/pass/hip-stretch-pigeon-arms-extended.jpg;https://www.verywellfit.com/thmb/bRbReEXmtt2gw56S2YjeEWcizdo=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/7-downdog-56f98e3d3df78c7841935724.jpg;https://www.nourishmovelove.com/wp-content/uploads/2019/07/A75I6537.jpg;https://trillium-health.ca/wp-content/uploads/2020/09/woman-doing-core-strengthening-exercise-on-a-mat-in-a-sunny-gym_t20_8djLVQ-796x445-1.jpg;');";
+                + "INSERT INTO \"Category\" VALUES ('Yoga','Lower Back;Hip;Hamstring;Muscle Recovery;Deep Core;');";
+        String varName4 = ""
+                + "INSERT INTO \"CateImage\" VALUES ('biceps;triceps;abs;upperchest;lowerchest');";
+        String varName5 = ""
+                + "INSERT INTO \"CateImage\" VALUES ('hillrun;recoveryroutine;runningposture;breathingmethod;marathon');";
+        String varName6 = ""
+                + "INSERT INTO \"CateImage\" VALUES ('lowerback;hip;hamstring;musclerecovery;deepcore');";
 
         db.execSQL(varName1);
         db.execSQL(varName2);
         db.execSQL(varName3);
+        db.execSQL(varName4);
+        db.execSQL(varName5);
+        db.execSQL(varName6);
 
 
     }
@@ -68,6 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int NewVersion){
         db.execSQL("DROP TABLE IF EXISTS " + ACCOUNTS);
         db.execSQL("DROP TABLE IF EXISTS " + CATEGORY);
+        db.execSQL("DROP TABLE IF EXISTS " + CATEIMAGE);
         onCreate(db);
     }
 
@@ -134,4 +145,34 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return resultant;
     }
+
+    public ArrayList<Activity> getImages() {
+        String query = "SELECT * FROM CateImage";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<Activity> resultant = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            Activity queryData = new Activity();
+            //queryData.setImage(cursor.getString(0));
+
+            String str = cursor.getString(0);
+            String[] list = str.split(";");
+            ArrayList<Activity> imageList = new ArrayList<>();
+            for (int i = 0; i < list.length; i++) {
+                Activity imageActivity = new Activity();
+                imageActivity.setImage(list[i]);
+                Log.v("SetImage", list[i]);
+                imageList.add(imageActivity);
+            }
+            queryData.setActivities(imageList);
+            resultant.add(queryData);
+        }
+        cursor.close();
+        db.close();
+        return resultant;
+    }
+
+
 }

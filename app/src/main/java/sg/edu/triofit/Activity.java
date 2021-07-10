@@ -8,14 +8,17 @@ public class Activity {
     private String Video;
     private  ArrayList<Activity> activities = new ArrayList();
 
+    public ArrayList<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(ArrayList<Activity> activities) {
+        this.activities = activities;
+    }
+
     public Activity() {
     }
 
-//    public Activity(String name, String image, String video) {
-//        Name = name;
-//        Image = image;
-//        Video = video;
-//    }
 
 
     public Activity(String name, String image, String video, ArrayList<Activity> activities) {
