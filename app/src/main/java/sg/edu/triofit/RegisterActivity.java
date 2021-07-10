@@ -21,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     DBHandler dbHandler = new DBHandler(this,null,null,1);
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    //link to database
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference();
 
@@ -57,8 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String confirmPassword = etCfmPassword.getText().toString();
 
+                // if password is same as confirm password
                 if (password.equals(confirmPassword))
                 {
+                    // if edit text is empty | All must be filled in
                     if(TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) ||TextUtils.isEmpty(etAge.getText().toString())
                             || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()))
                     {
@@ -66,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else
                     {
+                        // if email is in correct format
                         if (email.trim().matches(emailPattern)) //if email is in correct format
                         {
                             if(etPassword.getText().toString().equals(etCfmPassword.getText().toString())) // if password matches cfm password
@@ -74,7 +78,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 float weight = Float.parseFloat(etWeight.getText().toString());
                                 float bmi = weight / (height*height);
 
+                                //call method
                                 saveData(username,password,email,age,height,weight,bmi);
+
                                 Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                 startActivity(intent);
@@ -147,7 +153,9 @@ public class RegisterActivity extends AppCompatActivity {
 
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi)
             {
+                // create user object and store data in
                 UserData user = new UserData(username,password,email,age,height,weight,bmi);
+                //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).setValue(user);
             }
 

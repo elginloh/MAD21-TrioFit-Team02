@@ -70,30 +70,36 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
+                //call method
                 isUser(username,password);
 
             }
         });
 
     }
+    //Check whether user is in firebase.
     private void isUser(String username,String password) {
 
 //        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("User");
 
+        //Get data from firebase realtime database
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        //Reference to user table
         DatabaseReference mDatabase = firebaseDatabase.getReference().child("User");
 
+        //Checks user entered username to database
         Query checkUser = mDatabase.orderByChild("username").equalTo(username);
 
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // if user entered data exist
                 if (snapshot.exists()) {
 
                     etPassword.setError(null);
+                    //retrieve everything from firebase realtime database
 
                     String passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
-
                     String nameFromDB =  snapshot.child(username).child("name").getValue(String.class);
                     String ageFromDB =  snapshot.child(username).child("age").getValue(String.class);
                     String emailFromDB =  snapshot.child(username).child("email").getValue(String.class);
@@ -101,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                     Float weightFromDB =  snapshot.child(username).child("weight").getValue(Float.class);
                     Float BMIFromDB =  snapshot.child(username).child("bmi").getValue(Float.class);
 
+                    //Then checks user entered password is the same as password from the database
                     if (password.equals(passwordFromDB)) {
 
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
@@ -108,10 +115,12 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }
+                    // if user entered password is not the same
                     else {
                         etPassword.setError("Wrong Password!");
                         etPassword.requestFocus();
                     }
+                    // if user does not exist in database
                 } else {
                     etUsername.setError("No such User exist.");
                     etUsername.requestFocus();
