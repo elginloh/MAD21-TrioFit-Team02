@@ -6,7 +6,10 @@ public class UserData {
     private String Username;
     private String Password;
     private String Email;
-    private String DOB;
+    private String Age;
+    private float height;
+    private float weight;
+    private float bmi;
 
     public String getUsername() {
         return Username;
@@ -32,23 +35,48 @@ public class UserData {
         Email = email;
     }
 
-    public String getDOB() {
-        return DOB;
+    public String getAge() {
+        return Age;
     }
 
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
+    public void setAge(String age) {
+        Age = age;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public float getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(float bmi) {
+        this.bmi = bmi;
     }
 
     public UserData() {
     }
 
-    public UserData(String username, String password, String email, String DOB) {
+    public UserData(String username, String password, String email, String age, float height, float weight,float bmi) {
         Username = username;
         Password = password;
         Email = email;
-        this.DOB = DOB;
+        Age = age;
+        this.height = height;
+        this.weight = weight;
+        this.bmi = bmi;
     }
-
-
 }
