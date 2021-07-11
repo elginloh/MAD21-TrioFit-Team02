@@ -60,7 +60,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
         String imageName = activityImageList.get(position).getImage();
 
         actHolder.activity.setText(activity);
-        Log.v("ImageName", imageName);
+//        Log.v("ImageName", imageName);
         int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
 
