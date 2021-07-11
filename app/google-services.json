@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129984432399",
+    "project_id": "mad21-triofit-team02-ab582",
+    "storage_bucket": "mad21-triofit-team02-ab582.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129984432399:android:cd2d5d5a865493d9b0167a",
+        "android_client_info": {
+          "package_name": "sg.edu.triofit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129984432399-arpn43tlbri97srm2qd5l6tk25584gk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo7X-OSwCDhFLref0HKwGsRDN7w3SF3QU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129984432399-arpn43tlbri97srm2qd5l6tk25584gk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
