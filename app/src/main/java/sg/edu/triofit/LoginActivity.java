@@ -107,11 +107,20 @@ public class LoginActivity extends AppCompatActivity {
                     Float weightFromDB =  snapshot.child(username).child("weight").getValue(Float.class);
                     Float BMIFromDB =  snapshot.child(username).child("bmi").getValue(Float.class);
 
+
                     //Then checks user entered password is the same as password from the database
                     if (password.equals(passwordFromDB)) {
 
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                        intent.putExtra("name",nameFromDB);
+                        intent.putExtra("age",ageFromDB);
+                        intent.putExtra("email",emailFromDB);
+                        intent.putExtra("height",heightFromDB);
+                        intent.putExtra("weight",weightFromDB);
+                        intent.putExtra("bmi",BMIFromDB);
+
                         startActivity(intent);
 
                     }
