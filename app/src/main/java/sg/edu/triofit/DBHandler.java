@@ -88,7 +88,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_USERNAME, userData.getUsername());
         values.put(COLUMN_PASSWORD, userData.getPassword());
         values.put(COLUMN_EMAIL, userData.getEmail());
-        values.put(COLUMN_DATE, userData.getDOB());
+        values.put(COLUMN_DATE, userData.getAge());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(ACCOUNTS,  null, values);
@@ -110,7 +110,7 @@ public class DBHandler extends SQLiteOpenHelper {
             queryData.setUsername(cursor.getString(0));
             queryData.setPassword(cursor.getString(1));
             queryData.setEmail(cursor.getString(2));
-            queryData.setDOB(cursor.getString(3));
+            queryData.setAge(cursor.getString(3));
             //extract information of user
             cursor.close();
         }

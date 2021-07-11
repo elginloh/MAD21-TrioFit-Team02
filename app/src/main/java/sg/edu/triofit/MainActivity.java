@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         exerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Still waiting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, CatalogueActivity.class);
+                startActivity(intent);
+
             }
         });
 
