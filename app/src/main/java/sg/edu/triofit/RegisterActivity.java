@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth fAuth;
 
-    EditText etUsername,etEmail,etHeight,etWeight,etAge,etPassword,etCfmPassword;
+    EditText etUsername,etEmail,etHeight,etWeight,etAge,etPassword,etCfmPassword,etNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         etAge = findViewById(R.id.age);
         etPassword = findViewById(R.id.password);
         etCfmPassword = findViewById(R.id.confirmpassword);
+        etNumber = findViewById(R.id.number);
 
         Button registerBtn = findViewById(R.id.reigsterBtn);
         registerBtn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 String email = etEmail.getText().toString();
+                String number = etNumber.getText().toString();
 
                 String age = etAge.getText().toString();
 
@@ -63,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     // if edit text is empty | All must be filled in
                     if(TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) ||TextUtils.isEmpty(etAge.getText().toString())
-                            || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()))
+                            || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()) || TextUtils.isEmpty(etNumber.getText().toString()))
                     {
                         Toast.makeText(RegisterActivity.this,"Please fill in all boxes", Toast.LENGTH_SHORT).show();
                     }
@@ -79,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 float bmi = weight / (height*height);
 
                                 //call method
-                                saveData(username,password,email,age,height,weight,bmi);
+                                saveData(username,password,email,age,height,weight,bmi,number);
 
                                 Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
@@ -151,10 +153,10 @@ public class RegisterActivity extends AppCompatActivity {
 //                }
             }
 
-            private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi)
+            private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
                 // create user object and store data in
-                UserData user = new UserData(username,password,email,age,height,weight,bmi);
+                UserData user = new UserData(username,password,email,age,height,weight,bmi,number);
                 //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).setValue(user);
             }

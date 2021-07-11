@@ -27,10 +27,13 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     DBHandler dbHandler = new DBHandler(this, null ,null, 1);
-
+    static UserData userInfo;
 //    DatabaseReference reference;
     FirebaseAuth auth;
     FirebaseUser user;
+    //test
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private DatabaseReference root = db.getReference().child("User");
 
     EditText etUsername,etPassword;
 
@@ -94,18 +97,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // if user entered data exist
+                String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB;
+                Float heightFromDB, weightFromDB, BMIFromDB;
                 if (snapshot.exists()) {
 
                     etPassword.setError(null);
                     //retrieve everything from firebase realtime database
 
-                    String passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
-                    String nameFromDB =  snapshot.child(username).child("name").getValue(String.class);
-                    String ageFromDB =  snapshot.child(username).child("age").getValue(String.class);
-                    String emailFromDB =  snapshot.child(username).child("email").getValue(String.class);
-                    Float heightFromDB =  snapshot.child(username).child("height").getValue(Float.class);
-                    Float weightFromDB =  snapshot.child(username).child("weight").getValue(Float.class);
-                    Float BMIFromDB =  snapshot.child(username).child("bmi").getValue(Float.class);
+                    passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
+                    nameFromDB =  snapshot.child(username).child("username").getValue(String.class);
+                    ageFromDB =  snapshot.child(username).child("age").getValue(String.class);
+                    numberFromDB = snapshot.child(username).child("number").getValue(String.class);
+                    emailFromDB =  snapshot.child(username).child("email").getValue(String.class);
+                    heightFromDB =  snapshot.child(username).child("height").getValue(Float.class);
+                    weightFromDB =  snapshot.child(username).child("weight").getValue(Float.class);
+                    BMIFromDB =  snapshot.child(username).child("bmi").getValue(Float.class);
+
+
 
 
                     //Then checks user entered password is the same as password from the database
@@ -113,13 +121,16 @@ public class LoginActivity extends AppCompatActivity {
 
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                        intent.putExtra("name",nameFromDB);
-                        intent.putExtra("age",ageFromDB);
-                        intent.putExtra("email",emailFromDB);
-                        intent.putExtra("height",heightFromDB);
-                        intent.putExtra("weight",weightFromDB);
-                        intent.putExtra("bmi",BMIFromDB);
+//
+//                        intent.putExtra("name",nameFromDB);
+//                        intent.putExtra("password", passwordFromDB);
+//                        intent.putExtra("age",ageFromDB);
+//                        intent.putExtra("email",emailFromDB);
+//                        intent.putExtra("height",heightFromDB);
+//                        intent.putExtra("weight",weightFromDB);
+//                        intent.putExtra("bmi",BMIFromDB);
+//                        intent.putExtra("number",numberFromDB);
+                        userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB);
 
                         startActivity(intent);
 
