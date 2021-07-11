@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sg.edu.triofit">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -13,15 +14,20 @@
         <activity android:name=".bmiInformation" />
         <activity android:name=".Profile" />
         <activity android:name=".bmiTrend" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SegmentActivity"></activity>
+        <!-- <activity android:name=".ActivityViewHolder"></activity> -->
+        <!-- <activity android:name=".CategoryViewHolder" /> -->
+        <activity android:name=".CatalogueActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+
     </application>
 
 </manifest>
