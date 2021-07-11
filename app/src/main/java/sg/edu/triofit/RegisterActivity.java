@@ -156,9 +156,19 @@ public class RegisterActivity extends AppCompatActivity {
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
                 // create user object and store data in
-                UserData user = new UserData(username,password,email,age,height,weight,bmi,number);
+//                UserData users = new UserData(username,password,email,age,height,weight,bmi,number);
                 //Save user object created to 'User' table in firebase
-                mDatabase.child("User").child(username).setValue(user);
+                mDatabase.child("User").child(username).child("username").setValue(username);
+                mDatabase.child("User").child(username).child("password").setValue(password);
+                mDatabase.child("User").child(username).child("email").setValue(email);
+                mDatabase.child("User").child(username).child("age").setValue(age);
+                mDatabase.child("User").child(username).child("height").setValue(height);
+                mDatabase.child("User").child(username).child("weight").setValue(weight);
+                mDatabase.child("User").child(username).child("bmi").setValue(bmi);
+                mDatabase.child("User").child(username).child("number").setValue(number);
+//                mDatabase.child("User").child(username).child("defaultusername").setValue(username);
+//                mDatabase.child("User").child(username).setValue(users);
+
             }
 
 

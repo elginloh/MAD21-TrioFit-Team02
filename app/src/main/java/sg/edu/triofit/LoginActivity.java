@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // if user entered data exist
-                String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB;
+                String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB/*, defaultnameFromDB*/;
                 Float heightFromDB, weightFromDB, BMIFromDB;
                 if (snapshot.exists()) {
 
@@ -106,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
                     nameFromDB =  snapshot.child(username).child("username").getValue(String.class);
+//                    defaultnameFromDB =  snapshot.child(username).child("defaultusername").getValue(String.class);
                     ageFromDB =  snapshot.child(username).child("age").getValue(String.class);
                     numberFromDB = snapshot.child(username).child("number").getValue(String.class);
                     emailFromDB =  snapshot.child(username).child("email").getValue(String.class);
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        intent.putExtra("weight",weightFromDB);
 //                        intent.putExtra("bmi",BMIFromDB);
 //                        intent.putExtra("number",numberFromDB);
-                        userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB);
+                        userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB/*, defaultnameFromDB*/);
 
                         startActivity(intent);
 

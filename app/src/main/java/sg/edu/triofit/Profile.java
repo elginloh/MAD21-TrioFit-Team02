@@ -18,8 +18,8 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         /*---------------Variables---------------*/
-        TextView accountName, accountNumber, accountEmail, accountAge, accountBMI, accountHeight, accountWeight, profileName, profileEmail;
-        ImageView changePfp;
+        TextView accountName, accountNumber, accountEmail, accountAge, accountBMI, accountHeight, accountWeight, profileName, profileEmail, backBtn;
+        ImageView changePfp, editAccount;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
@@ -34,6 +34,8 @@ public class Profile extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         profileEmail = findViewById(R.id.profileEmail);
         changePfp = findViewById(R.id.changePfp);
+        editAccount = findViewById(R.id.accountEdit);
+        backBtn = findViewById(R.id.profileBack);
 
         //set account information
         profileName.setText(user.getUsername());
@@ -47,6 +49,20 @@ public class Profile extends AppCompatActivity {
         accountWeight.setText(String.valueOf(user.getWeight()) + "KG");
 
         //set onclicks
+        editAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
