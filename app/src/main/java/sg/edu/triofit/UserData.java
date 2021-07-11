@@ -3,13 +3,14 @@ package sg.edu.triofit;
 import java.util.Date;
 
 public class UserData {
-    private String Username;
-    private String Password;
-    private String Email;
-    private String Age;
-    private float height;
-    private float weight;
-    private float bmi;
+    public String Username;
+    public String Password;
+    public String Email;
+    public String Age;
+    public String Number;
+    public float height;
+    public float weight;
+    public float bmi;
 
     public String getUsername() {
         return Username;
@@ -26,6 +27,10 @@ public class UserData {
     public void setPassword(String password) {
         Password = password;
     }
+
+    public String getNumber() { return Number; }
+
+    public void setNumber(String number) { Number = number; }
 
     public String getEmail() {
         return Email;
@@ -70,11 +75,12 @@ public class UserData {
     public UserData() {
     }
 
-    public UserData(String username, String password, String email, String age, float height, float weight,float bmi) {
+    public UserData(String username, String password, String email, String age, float height, float weight,float bmi, String number) {
         Username = username;
         Password = password;
         Email = email;
         Age = age;
+        Number = number;
         this.height = height;
         this.weight = weight;
         this.bmi = bmi;

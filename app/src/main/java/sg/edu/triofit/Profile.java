@@ -20,6 +20,7 @@ public class Profile extends AppCompatActivity {
         /*---------------Variables---------------*/
         TextView accountName, accountNumber, accountEmail, accountAge, accountBMI, accountHeight, accountWeight, profileName, profileEmail;
         ImageView changePfp;
+        UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
         //Retrieve from layout
@@ -35,15 +36,15 @@ public class Profile extends AppCompatActivity {
         changePfp = findViewById(R.id.changePfp);
 
         //set account information
-        profileName.setText("Elgin Loh");
-        profileEmail.setText("elginloh@gmail.com");
-        accountName.setText("Elgin Loh");
-        accountNumber.setText("91691626");
-        accountEmail.setText("elginloh@gmail.com");
-        accountAge.setText("20");
-        accountBMI.setText("24");
-        accountHeight.setText("173CM");
-        accountWeight.setText("73KG");
+        profileName.setText(user.getUsername());
+        profileEmail.setText(user.getEmail());
+        accountName.setText(user.getUsername());
+        accountNumber.setText(user.getNumber());
+        accountEmail.setText(user.getEmail());
+        accountAge.setText(user.getAge());
+        accountBMI.setText(String.valueOf(user.getBmi()));
+        accountHeight.setText(String.valueOf(user.getHeight()) + "M");
+        accountWeight.setText(String.valueOf(user.getWeight()) + "KG");
 
         //set onclicks
 

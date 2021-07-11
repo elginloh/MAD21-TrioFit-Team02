@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
-        double bmi = 25;
         Button bmiBtn, exerBtn, idkBtn;
         ImageView profileBtn;
+        UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
         //Retrieve from layout
@@ -35,9 +39,18 @@ public class MainActivity extends AppCompatActivity {
         idkBtn = findViewById(R.id.idkBtn);
         profileBtn = findViewById(R.id.profileBtn);
 
+        //Retrieve from intent
+//        Intent intent = getIntent();
+//        String name = intent.getStringExtra("name");
+//        Float bmi = intent.getFloatExtra("bmi",0);
+//        String pass = intent.getStringExtra("password");
+
+
+
         //set welcome text
-        welcomeusername.setText("Welcome back, " + "elgin");
-        bmistatus.setText(bmiCheck(bmi));
+
+        welcomeusername.setText("Welcome back, " + user.getUsername());
+        bmistatus.setText(bmiCheck(user.getBmi()));
         exerInfo.setText("Ever want to do exercises but do not know how to start? Fear not, we will be providing information and tutorial videos for you to follow through to exercise.");
         bmiInfo.setText("Here are information that would show you the current bmi status and information and some information in how you can see on helping in keeping your bmi in ideal range.");
         idkyet.setText("If have enough time this slot will be added for the usage of API");
@@ -78,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //function for changing of message based on their calculated bmi
-    public String bmiCheck(Double bmi){
+    public String bmiCheck(Float bmi){
         String message = "";
         if(bmi < 18.5)
         {

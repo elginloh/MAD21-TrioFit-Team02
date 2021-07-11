@@ -16,10 +16,11 @@ public class bmiInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_information);
 
-        bmiInfo = bmiCheck(26.3);
+
 
         /*---------------Variables---------------*/
         TextView bmiType, typeInfo, risk, solution;
+        UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
         //Retrieve from layout
@@ -29,13 +30,14 @@ public class bmiInformation extends AppCompatActivity {
         solution = findViewById(R.id.solution);
 
         //set info
+        bmiInfo = bmiCheck(user.getBmi());
         bmiType.setText(bmiInfo.get(0)); //get from first data in list
         typeInfo.setText(bmiInfo.get(1)); //get second first data in list
         risk.setText(bmiInfo.get(2)); //get from third data in list
         solution.setText(bmiInfo.get(3)); //get from fourth data in list
     }
 
-    public List<String> bmiCheck(Double bmi){
+    public List<String> bmiCheck(Float bmi){
         String message = "";
         String type = "";
         String risk = "";
