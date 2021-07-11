@@ -8,6 +8,7 @@ public class UserData {
     public String Email;
     public String Age;
     public String Number;
+    public String DefaultUsername;
     public float height;
     public float weight;
     public float bmi;
@@ -27,6 +28,10 @@ public class UserData {
     public void setPassword(String password) {
         Password = password;
     }
+
+//    public String getDefaultUsername() { return DefaultUsername; }
+//
+//    public void setDefaultUsername(String defaultUsername) { DefaultUsername = defaultUsername; }
 
     public String getNumber() { return Number; }
 
@@ -75,12 +80,13 @@ public class UserData {
     public UserData() {
     }
 
-    public UserData(String username, String password, String email, String age, float height, float weight,float bmi, String number) {
+    public UserData(String username, String password, String email, String age, float height, float weight,float bmi, String number/*, String defaultUsername*/) {
         Username = username;
         Password = password;
         Email = email;
         Age = age;
         Number = number;
+//        DefaultUsername = defaultUsername;
         this.height = height;
         this.weight = weight;
         this.bmi = bmi;
