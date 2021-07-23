@@ -25,7 +25,7 @@ public class EditProfile extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         EditText editNumber, editEmail, editHeight, editWeight, editAge;
-        Button updateBtn;
+        Button updateBtn,changePW;
 
         /*---------------Variables---------------*/
 
@@ -36,6 +36,7 @@ public class EditProfile extends AppCompatActivity {
         editWeight = findViewById(R.id.editWeight);
         editAge = findViewById(R.id.editAge);
         updateBtn = findViewById(R.id.updateBtn);
+        changePW  = findViewById(R.id.btn_ChangePassword);
 
         //setDefaultText
         editNumber.setText(user.getNumber());
@@ -57,6 +58,14 @@ public class EditProfile extends AppCompatActivity {
                 saveData(email,age,height,weight,bmi,number);
 
                 startActivity(new Intent(EditProfile.this, Profile.class));
+            }
+        });
+
+        changePW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProfile.this,ChangePassword.class);
+                startActivity(intent);
             }
         });
 
