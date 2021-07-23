@@ -18,7 +18,8 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     TextView categoryName;
     RecyclerView rvCategory;
     List<String> categoryList;
-    List<Activity> activityList;
+    List<Activity> imgActivityList;
+    List<Activity> videoActivityList;
     Context context;
 
 
@@ -30,8 +31,9 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
 
         categoryList = new ArrayList<>();
-        activityList = new ArrayList<>();
-        adapter = new ActivityAdapter(categoryList, activityList, context);
+        imgActivityList = new ArrayList<>();
+        videoActivityList = new ArrayList<>();
+        adapter = new ActivityAdapter(categoryList, imgActivityList, videoActivityList, context);
         LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         rvCategory.setLayoutManager(layoutManager);
@@ -45,8 +47,14 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setImageList(List<Activity> activities) {
-        this.activityList.clear();
-        this.activityList.addAll(activities);
+        this.imgActivityList.clear();
+        this.imgActivityList.addAll(activities);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setVideoList(List<Activity> activities) {
+        this.videoActivityList.clear();
+        this.videoActivityList.addAll(activities);
         adapter.notifyDataSetChanged();
     }
 }

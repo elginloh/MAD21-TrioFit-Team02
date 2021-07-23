@@ -26,11 +26,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public static String CATEIMAGE = "CateImage";
     public static String COLUMN_IMAGE = "Image";
+
+    public static String CATEVIDEO = "CateVideo";
     public static String COLUMN_VIDEO = "Video";
 
 
 
-    public static int DATABASE_VERSION = 13;
+    public static int DATABASE_VERSION = 14;
 
     public  DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
     {
@@ -47,9 +49,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String CREATE_CATEIMAGE_TABLE = "CREATE TABLE " + CATEIMAGE + "(" + COLUMN_IMAGE + "TEXT" + ")";
 
+        String CREATE_CATEVIDEO_TABLE = "CREATE TABLE " + CATEVIDEO + "(" + COLUMN_VIDEO + "TEXT" + ")";
+
         db.execSQL(CREATE_ACCOUNTS_TABLE);
         db.execSQL(CREATE_CATEGORY_TABLE);
         db.execSQL(CREATE_CATEIMAGE_TABLE);
+        db.execSQL(CREATE_CATEVIDEO_TABLE);
 
         String varName1 = ""
                 + "INSERT INTO \"Category\" VALUES ('Workout','Biceps;Triceps;Abdominals;Upper Chest;Lower Chest;');";
@@ -63,6 +68,12 @@ public class DBHandler extends SQLiteOpenHelper {
                 + "INSERT INTO \"CateImage\" VALUES ('hillrun;recoveryroutine;runningposture;breathingmethod;marathon');";
         String varName6 = ""
                 + "INSERT INTO \"CateImage\" VALUES ('lowerback;hip;hamstring;musclerecovery;deepcore');";
+        String varName7 = ""
+                + "INSERT INTO \"CateVideo\" VALUES ('UY6-JzdnHUM;KzBZ02EAJvE;zzD80vCLq0Y;EHR3Rl26-4A;BKyvTYuxWZE');";
+        String varName8 = ""
+                + "INSERT INTO \"CateVideo\" VALUES ('bRjT1asH1kw;zbayPYgUWUw;_kGESn8Arr;MtvBzgeUrZ8;C7NnlF0-p60');";
+        String varName9 = ""
+                + "INSERT INTO \"CateVideo\" VALUES ('XeXz8fIZDCE;FhcZuQRC-mI;-Mirm7LKvKk;YLSUfYjpltU;BPobdbmzY9o');";
 
         db.execSQL(varName1);
         db.execSQL(varName2);
@@ -70,6 +81,9 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(varName4);
         db.execSQL(varName5);
         db.execSQL(varName6);
+        db.execSQL(varName7);
+        db.execSQL(varName8);
+        db.execSQL(varName9);
 
 
     }
@@ -79,6 +93,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + ACCOUNTS);
         db.execSQL("DROP TABLE IF EXISTS " + CATEGORY);
         db.execSQL("DROP TABLE IF EXISTS " + CATEIMAGE);
+        db.execSQL("DROP TABLE IF EXISTS " + CATEVIDEO);
         onCreate(db);
     }
 
@@ -163,10 +178,36 @@ public class DBHandler extends SQLiteOpenHelper {
             for (int i = 0; i < list.length; i++) {
                 Activity imageActivity = new Activity();
                 imageActivity.setImage(list[i]);
-                Log.v("SetImage", list[i]);
                 imageList.add(imageActivity);
             }
             queryData.setActivities(imageList);
+            resultant.add(queryData);
+        }
+        cursor.close();
+        db.close();
+        return resultant;
+    }
+
+    public ArrayList<Activity> getVideos() {
+        String query = "SELECT * FROM CateVideo";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        ArrayList<Activity> resultant = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            Activity queryData = new Activity();
+            //queryData.setImage(cursor.getString(0));
+
+            String str = cursor.getString(0);
+            String[] list = str.split(";");
+            ArrayList<Activity> videoList = new ArrayList<>();
+            for (int i = 0; i < list.length; i++) {
+                Activity videoActivity = new Activity();
+                videoActivity.setVideo(list[i]);
+                videoList.add(videoActivity);
+            }
+            queryData.setActivities(videoList);
             resultant.add(queryData);
         }
         cursor.close();

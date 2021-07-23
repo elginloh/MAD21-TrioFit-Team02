@@ -1,6 +1,7 @@
 package sg.edu.triofit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
 
     private final List<Category> categoryList;
     private List<Activity> imageList;
+    private List<Activity> videoList;
     private Context context;
 
-    public CategoryAdapter(List<Category> categoryList, List<Activity> imageList, Context context)
+    public CategoryAdapter(List<Category> categoryList, List<Activity> imageList, List<Activity>  videoList, Context context)
     {
         this.categoryList = categoryList;
         this.imageList = imageList;
+        this.videoList = videoList;
         this.context = context;
     }
 
@@ -37,6 +40,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
         catHolder.setCategoryList(category.getCategory());
         Activity activity = imageList.get(position);
         catHolder.setImageList(activity.getActivities());
+        Activity activity1 = videoList.get(position);
+        catHolder.setVideoList(activity1.getActivities());
     }
 
     @Override

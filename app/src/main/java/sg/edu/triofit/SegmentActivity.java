@@ -3,7 +3,9 @@ package sg.edu.triofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -18,7 +20,7 @@ public class SegmentActivity extends YouTubeBaseActivity {
     YouTubePlayerView youtubePlayerView;
     YouTubePlayer.OnInitializedListener onInitializedListener;
 
-    private static final String video = "w9xfXsqIGKk";
+    private String video = "w9xfXsqIGKk";
 
 
 
@@ -26,6 +28,8 @@ public class SegmentActivity extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segment);
+        Intent intent = getIntent();
+        video = intent.getStringExtra("videoCode");
 
         youtubePlayerView = findViewById(R.id.YoutubePlayerView);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {

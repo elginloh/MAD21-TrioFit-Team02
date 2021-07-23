@@ -30,6 +30,7 @@ import java.util.List;
 public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
     List<Activity> activityImageList;
+    List<Activity> activityVideoList;
 
        Context context;
 
@@ -37,11 +38,12 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
 
-    public ActivityAdapter(List<String> activityList , List<Activity> activityImageList, Context context){
+    public ActivityAdapter(List<String> activityList,  List<Activity> activityImageList, List<Activity> activityVideoList, Context context){
         this.context = context;
         this.activityList = activityList;
         this.activityImageList = activityImageList;
-    }
+        this.activityVideoList =activityVideoList;
+    };
 
 
     @NonNull
@@ -58,9 +60,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
         String activity = activityList.get(position);
         String imageName = activityImageList.get(position).getImage();
-
+        String video = activityVideoList.get(position).getVideo();
         actHolder.activity.setText(activity);
-//        Log.v("ImageName", imageName);
         int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
 
@@ -68,6 +69,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(actHolder.imageView.getContext(),SegmentActivity.class);
+                intent.putExtra("videoCode",video);
                 actHolder.imageView.getContext().startActivity(intent);
             }
         });
