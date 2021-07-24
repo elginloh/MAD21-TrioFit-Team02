@@ -3,6 +3,8 @@ package sg.edu.triofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,9 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
+
+import java.net.CookieHandler;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
         Button bmiBtn, exerBtn, idkBtn;
-        ImageView profileBtn;
+        ImageView profileBtn, pfp;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         exerBtn = findViewById(R.id.exerBtn);
         idkBtn = findViewById(R.id.idkBtn);
         profileBtn = findViewById(R.id.profileBtn);
+        pfp = findViewById(R.id.pfp);
 
         //Retrieve from intent
 //        Intent intent = getIntent();
@@ -54,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
         exerInfo.setText("Ever want to do exercises but do not know how to start? Fear not, we will be providing information and tutorial videos for you to follow through to exercise.");
         bmiInfo.setText("Here are information that would show you the current bmi status and information and some information in how you can see on helping in keeping your bmi in ideal range.");
         idkyet.setText("If have enough time this slot will be added for the usage of API");
+        if (user.getPfp().equals("null"))
+        {
+            pfp.setImageResource(R.mipmap.ic_launcher_round);
+        }
+        else
+        {
+            Picasso.get().load(user.getPfp()).into(pfp);
+        }
 
         //onClicks
         bmiBtn.setOnClickListener(new View.OnClickListener() {
