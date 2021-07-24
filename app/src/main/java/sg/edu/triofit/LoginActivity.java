@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -97,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // if user entered data exist
-                String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB/*, defaultnameFromDB*/;
+                String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB, imageUrl;
                 Float heightFromDB, weightFromDB, BMIFromDB;
                 if (snapshot.exists()) {
 
@@ -113,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                     heightFromDB =  snapshot.child(username).child("height").getValue(Float.class);
                     weightFromDB =  snapshot.child(username).child("weight").getValue(Float.class);
                     BMIFromDB =  snapshot.child(username).child("bmi").getValue(Float.class);
-
+                    imageUrl = snapshot.child(username).child("imageUrl").getValue(String.class);
 
 
 
@@ -131,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        intent.putExtra("weight",weightFromDB);
 //                        intent.putExtra("bmi",BMIFromDB);
 //                        intent.putExtra("number",numberFromDB);
-                        userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB/*, defaultnameFromDB*/);
+                        userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB, imageUrl);
 
                         startActivity(intent);
 

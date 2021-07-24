@@ -423,14 +423,14 @@
                         android:id="@+id/profileName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
                         android:text="TextView"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/changePic" />
+                        app:layout_constraintTop_toBottomOf="@+id/changePfp" />
 
                     <TextView
                         android:id="@+id/profileEmail"
@@ -446,32 +446,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/profileName"
                         app:layout_constraintVertical_bias="1.0" />
-
-                    <ImageView
-                        android:id="@+id/camera"
-                        android:layout_width="50dp"
-                        android:layout_height="41dp"
-                        android:layout_marginStart="83dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="195dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/changePfp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/camera" />
-
-                    <TextView
-                        android:id="@+id/changePic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Change Photo"
-                        android:textColor="#0000FF"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/changePfp" />
 
                     <TextView
                         android:id="@+id/profileBack"

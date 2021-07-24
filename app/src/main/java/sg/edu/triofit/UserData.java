@@ -1,5 +1,7 @@
 package sg.edu.triofit;
 
+import android.net.Uri;
+
 import java.util.Date;
 
 public class UserData {
@@ -8,10 +10,10 @@ public class UserData {
     public String Email;
     public String Age;
     public String Number;
-    public String DefaultUsername;
     public float height;
     public float weight;
     public float bmi;
+    public String Pfp;
 
     public String getUsername() {
         return Username;
@@ -77,16 +79,24 @@ public class UserData {
         this.bmi = bmi;
     }
 
+    public String getPfp() {
+        return Pfp;
+    }
+
+    public void setPfp(String pfp) {
+        this.Pfp = pfp;
+    }
+
     public UserData() {
     }
 
-    public UserData(String username, String password, String email, String age, float height, float weight,float bmi, String number/*, String defaultUsername*/) {
+    public UserData(String username, String password, String email, String age, float height, float weight,float bmi, String number, String pfp) {
         Username = username;
         Password = password;
         Email = email;
         Age = age;
         Number = number;
-//        DefaultUsername = defaultUsername;
+        Pfp = pfp;
         this.height = height;
         this.weight = weight;
         this.bmi = bmi;
