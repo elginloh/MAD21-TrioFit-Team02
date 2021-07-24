@@ -166,6 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
                 mDatabase.child("User").child(username).child("weight").setValue(weight);
                 mDatabase.child("User").child(username).child("bmi").setValue(bmi);
                 mDatabase.child("User").child(username).child("number").setValue(number);
+                mDatabase.child("User").child(username).child("imageUrl").setValue("null");
 //                mDatabase.child("User").child(username).child("defaultusername").setValue(username);
 //                mDatabase.child("User").child(username).setValue(users);
 
