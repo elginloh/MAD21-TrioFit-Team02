@@ -20,6 +20,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     List<String> categoryList;
     List<Activity> imgActivityList;
     List<Activity> videoActivityList;
+    List<Activity> descActivityList;
     Context context;
 
 
@@ -33,6 +34,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         categoryList = new ArrayList<>();
         imgActivityList = new ArrayList<>();
         videoActivityList = new ArrayList<>();
+//        descActivityList = new ArrayList<>();
         adapter = new ActivityAdapter(categoryList, imgActivityList, videoActivityList, context);
         LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
@@ -53,6 +55,12 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setVideoList(List<Activity> activities) {
+        this.videoActivityList.clear();
+        this.videoActivityList.addAll(activities);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setDescList(List<Activity> activities) {
         this.videoActivityList.clear();
         this.videoActivityList.addAll(activities);
         adapter.notifyDataSetChanged();

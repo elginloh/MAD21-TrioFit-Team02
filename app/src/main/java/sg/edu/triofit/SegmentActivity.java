@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -21,7 +24,7 @@ public class SegmentActivity extends YouTubeBaseActivity {
     YouTubePlayer.OnInitializedListener onInitializedListener;
 
     private String video = "w9xfXsqIGKk";
-
+    private String description = "description of video.";
 
 
     @Override
@@ -30,7 +33,9 @@ public class SegmentActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_segment);
         Intent intent = getIntent();
         video = intent.getStringExtra("videoCode");
-
+////        description = intent.getStringExtra("description");
+//        TextView desc = findViewById(R.id.videoDesc);
+//        desc.setText(description);
         youtubePlayerView = findViewById(R.id.YoutubePlayerView);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -45,7 +50,13 @@ public class SegmentActivity extends YouTubeBaseActivity {
             }
         };
         youtubePlayerView.initialize("AIzaSyArsX82MHSKkv3iGbZ9Ywu8KCOIfmvI-7w", onInitializedListener);
-
-
+        Button btn =  findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SegmentActivity.this, CatalogueActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
