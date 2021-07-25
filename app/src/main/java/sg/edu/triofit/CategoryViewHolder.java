@@ -42,6 +42,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         rvCategory.setAdapter(adapter);
     }
 
+    //Addition of data into corresponding list
     void setCategoryList(List<String> categoryList){
         this.categoryList.clear();
         this.categoryList.addAll(categoryList);

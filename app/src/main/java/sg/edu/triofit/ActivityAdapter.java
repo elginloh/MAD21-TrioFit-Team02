@@ -61,17 +61,19 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
         String activity = activityList.get(position);
-        String imageName = activityImageList.get(position).getImage();
-        String video = activityVideoList.get(position).getVideo();
-        String description = activityDescList.get(position).getDesc();
         actHolder.activity.setText(activity);
+        //setting image accordingly
+        String imageName = activityImageList.get(position).getImage();
         int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
-
+        //retrieve corresponding video and description
+        String video = activityVideoList.get(position).getVideo();
+        String description = activityDescList.get(position).getDesc();
         actHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(actHolder.imageView.getContext(),SegmentActivity.class);
+                //passing corresponding video and description to segment activity
                 intent.putExtra("videoCode",video);
                 intent.putExtra("description",description);
                 actHolder.imageView.getContext().startActivity(intent);

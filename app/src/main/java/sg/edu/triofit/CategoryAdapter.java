@@ -39,11 +39,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
     public void onBindViewHolder(@NonNull CategoryViewHolder catHolder, int position){
         Category category = categoryList.get(position);
         catHolder.categoryName.setText(category.getCategoryName());
+        //list of activities name
         catHolder.setCategoryList(category.getCategory());
+        //list of image name
         Activity activity = imageList.get(position);
         catHolder.setImageList(activity.getActivities());
+        //list of video codes
         Activity activity1 = videoList.get(position);
         catHolder.setVideoList(activity1.getActivities());
+        //list of video descriptions
         Activity activity2 = descList.get(position);
         catHolder.setDescList(activity2.getActivities());
     }

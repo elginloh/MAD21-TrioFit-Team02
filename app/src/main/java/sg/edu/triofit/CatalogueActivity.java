@@ -15,6 +15,7 @@ public class CatalogueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
 
+        //calling functions from database to retrieve data wanted
         DBHandler dbHandler = new DBHandler(this,null,null,1);
         List<Category> categoryList = dbHandler.getAll();
         List<Activity> imageList = dbHandler.getImages();

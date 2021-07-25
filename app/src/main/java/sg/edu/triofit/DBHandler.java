@@ -170,6 +170,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();;
         return queryData;
     }
+    //retrieve list of categories and activities name
     public ArrayList<Category> getAll() {
         String query = "SELECT * FROM Category";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -194,7 +195,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return resultant;
     }
-
+    // retrieve list of image
     public ArrayList<Activity> getImages() {
         String query = "SELECT * FROM CateImage";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -221,7 +222,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return resultant;
     }
-
+    //retrieve list of videos
     public ArrayList<Activity> getVideos() {
         String query = "SELECT * FROM CateVideo";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -248,7 +249,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return resultant;
     }
-
+    //retrieve list of video description
     public ArrayList<Activity> getDescript() {
         String query = "SELECT * FROM CateDesc";
         SQLiteDatabase db = this.getReadableDatabase();

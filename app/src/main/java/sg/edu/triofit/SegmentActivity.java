@@ -22,6 +22,7 @@ public class SegmentActivity extends YouTubeBaseActivity {
 
     YouTubePlayerView youtubePlayerView;
     YouTubePlayer.OnInitializedListener onInitializedListener;
+    TextView desc;
 
     private String video = "w9xfXsqIGKk";
     private String description = "description of video.";
@@ -31,15 +32,17 @@ public class SegmentActivity extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segment);
+        //retrieve data
         Intent intent = getIntent();
         video = intent.getStringExtra("videoCode");
         description = intent.getStringExtra("description");
-        TextView desc = findViewById(R.id.videoDesc);
+        desc = findViewById(R.id.videoDesc);
         desc.setText(description);
         youtubePlayerView = findViewById(R.id.YoutubePlayerView);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                //load video if video code is found through youtube API
                 youTubePlayer.loadVideo(video);
 
             }
@@ -49,6 +52,7 @@ public class SegmentActivity extends YouTubeBaseActivity {
 
             }
         };
+        //with the correct key, the video will play
         youtubePlayerView.initialize("AIzaSyArsX82MHSKkv3iGbZ9Ywu8KCOIfmvI-7w", onInitializedListener);
         Button btn =  findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
