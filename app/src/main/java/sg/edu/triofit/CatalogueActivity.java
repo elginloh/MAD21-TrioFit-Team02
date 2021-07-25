@@ -19,8 +19,8 @@ public class CatalogueActivity extends AppCompatActivity {
         List<Category> categoryList = dbHandler.getAll();
         List<Activity> imageList = dbHandler.getImages();
         List<Activity> videoList = dbHandler.getVideos();
-//        List<Activity> descList = dbHandler.getDesc();
-        CategoryAdapter adapter = new CategoryAdapter(categoryList, imageList, videoList, getApplicationContext());
+        List<Activity> descList = dbHandler.getDescript();
+        CategoryAdapter adapter = new CategoryAdapter(categoryList, imageList, videoList, descList,getApplicationContext());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
@@ -28,4 +28,5 @@ public class CatalogueActivity extends AppCompatActivity {
         rvCategory.setLayoutManager(layoutManager);
         rvCategory.setAdapter(adapter);
     }
+
 }

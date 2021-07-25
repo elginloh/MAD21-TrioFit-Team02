@@ -31,7 +31,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
     List<Activity> activityImageList;
     List<Activity> activityVideoList;
-//    List<Activity> activityDescList;
+    List<Activity> activityDescList;
 
        Context context;
 
@@ -39,12 +39,12 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
 
-    public ActivityAdapter(List<String> activityList, List<Activity> activityImageList, List<Activity> activityVideoList, Context context){
+    public ActivityAdapter(List<String> activityList, List<Activity> activityImageList, List<Activity> activityVideoList, List<Activity> activityDescList, Context context){
         this.context = context;
         this.activityList = activityList;
         this.activityImageList = activityImageList;
         this.activityVideoList =activityVideoList;
-//        this.activityDescList = activityDescList;
+        this.activityDescList = activityDescList;
     };
 
 
@@ -63,7 +63,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
         String activity = activityList.get(position);
         String imageName = activityImageList.get(position).getImage();
         String video = activityVideoList.get(position).getVideo();
-//        String description = activityDescList.get(position).getDesc();
+        String description = activityDescList.get(position).getDesc();
         actHolder.activity.setText(activity);
         int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
@@ -73,7 +73,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(actHolder.imageView.getContext(),SegmentActivity.class);
                 intent.putExtra("videoCode",video);
-//                intent.putExtra("Description",description);
+                intent.putExtra("description",description);
                 actHolder.imageView.getContext().startActivity(intent);
             }
         });

@@ -33,9 +33,9 @@ public class SegmentActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_segment);
         Intent intent = getIntent();
         video = intent.getStringExtra("videoCode");
-////        description = intent.getStringExtra("description");
-//        TextView desc = findViewById(R.id.videoDesc);
-//        desc.setText(description);
+        description = intent.getStringExtra("description");
+        TextView desc = findViewById(R.id.videoDesc);
+        desc.setText(description);
         youtubePlayerView = findViewById(R.id.YoutubePlayerView);
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override

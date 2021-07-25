@@ -16,15 +16,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
     private final List<Category> categoryList;
     private List<Activity> imageList;
     private List<Activity> videoList;
-//    private List<Activity> descList;
+    private List<Activity> descList;
     private Context context;
 
-    public CategoryAdapter(List<Category> categoryList, List<Activity> imageList, List<Activity> videoList, Context context)
+    public CategoryAdapter(List<Category> categoryList, List<Activity> imageList, List<Activity> videoList,List<Activity> descList, Context context)
     {
         this.categoryList = categoryList;
         this.imageList = imageList;
         this.videoList = videoList;
-//        this.descList = descList;
+        this.descList = descList;
         this.context = context;
     }
 
@@ -44,8 +44,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
         catHolder.setImageList(activity.getActivities());
         Activity activity1 = videoList.get(position);
         catHolder.setVideoList(activity1.getActivities());
-//        Activity activity2 = descList.get(position);
-//        catHolder.setDescList(activity2.getActivities());
+        Activity activity2 = descList.get(position);
+        catHolder.setDescList(activity2.getActivities());
     }
 
     @Override
