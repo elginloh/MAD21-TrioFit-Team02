@@ -20,9 +20,12 @@
         <activity android:name=".bmiTrend" />
         <activity
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:name=".SegmentActivity" /> <!-- <activity android:name=".ActivityViewHolder"></activity> -->
         <!-- <activity android:name=".CategoryViewHolder" /> -->
-        <activity android:name=".CatalogueActivity" />
+        <activity  android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:name=".CatalogueActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
