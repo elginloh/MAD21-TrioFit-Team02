@@ -18,7 +18,9 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     TextView categoryName;
     RecyclerView rvCategory;
     List<String> categoryList;
-    List<Activity> activityList;
+    List<Activity> imgActivityList;
+    List<Activity> videoActivityList;
+    List<Activity> descActivityList;
     Context context;
 
 
@@ -30,14 +32,17 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
 
         categoryList = new ArrayList<>();
-        activityList = new ArrayList<>();
-        adapter = new ActivityAdapter(categoryList, activityList, context);
+        imgActivityList = new ArrayList<>();
+        videoActivityList = new ArrayList<>();
+        descActivityList = new ArrayList<>();
+        adapter = new ActivityAdapter(categoryList, imgActivityList, videoActivityList, descActivityList, context);
         LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         rvCategory.setLayoutManager(layoutManager);
         rvCategory.setAdapter(adapter);
     }
 
+    //Addition of data into corresponding list
     void setCategoryList(List<String> categoryList){
         this.categoryList.clear();
         this.categoryList.addAll(categoryList);
@@ -45,8 +50,20 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setImageList(List<Activity> activities) {
-        this.activityList.clear();
-        this.activityList.addAll(activities);
+        this.imgActivityList.clear();
+        this.imgActivityList.addAll(activities);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setVideoList(List<Activity> activities) {
+        this.videoActivityList.clear();
+        this.videoActivityList.addAll(activities);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setDescList(List<Activity> activities) {
+        this.descActivityList.clear();
+        this.descActivityList.addAll(activities);
         adapter.notifyDataSetChanged();
     }
 }

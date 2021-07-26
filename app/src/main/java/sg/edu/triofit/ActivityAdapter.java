@@ -30,6 +30,8 @@ import java.util.List;
 public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
     List<Activity> activityImageList;
+    List<Activity> activityVideoList;
+    List<Activity> activityDescList;
 
        Context context;
 
@@ -37,11 +39,13 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
 
-    public ActivityAdapter(List<String> activityList , List<Activity> activityImageList, Context context){
+    public ActivityAdapter(List<String> activityList, List<Activity> activityImageList, List<Activity> activityVideoList, List<Activity> activityDescList, Context context){
         this.context = context;
         this.activityList = activityList;
         this.activityImageList = activityImageList;
-    }
+        this.activityVideoList =activityVideoList;
+        this.activityDescList = activityDescList;
+    };
 
 
     @NonNull
@@ -57,17 +61,21 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityViewHolder> {
 
 
         String activity = activityList.get(position);
-        String imageName = activityImageList.get(position).getImage();
-
         actHolder.activity.setText(activity);
-//        Log.v("ImageName", imageName);
+        //setting image accordingly
+        String imageName = activityImageList.get(position).getImage();
         int imageID = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         actHolder.imageView.setImageDrawable(context.getResources().getDrawable(imageID));
-
+        //retrieve corresponding video and description
+        String video = activityVideoList.get(position).getVideo();
+        String description = activityDescList.get(position).getDesc();
         actHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(actHolder.imageView.getContext(),SegmentActivity.class);
+                //passing corresponding video and description to segment activity
+                intent.putExtra("videoCode",video);
+                intent.putExtra("description",description);
                 actHolder.imageView.getContext().startActivity(intent);
             }
         });

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
-        Button bmiBtn, exerBtn, idkBtn;
+        Button bmiBtn, exerBtn, caloriesBtn;
         ImageView profileBtn, pfp;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         bmiInfo = findViewById(R.id.bmiInfo);
         bmiBtn = findViewById(R.id.bmiBtn);
         exerBtn = findViewById(R.id.exerBtn);
-        idkBtn = findViewById(R.id.idkBtn);
+        caloriesBtn = findViewById(R.id.caloriesBtn);
         profileBtn = findViewById(R.id.profileBtn);
         pfp = findViewById(R.id.pfp);
 
@@ -129,10 +129,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        idkBtn.setOnClickListener(new View.OnClickListener() {
+        caloriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Still waiting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, caloriesTracking.class);
+                startActivity(intent);
             }
         });
 
