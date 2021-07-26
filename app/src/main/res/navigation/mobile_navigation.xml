@@ -6,9 +6,29 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_gallery2"
+        android:name="sg.edu.triofit.ui.gallery.GalleryFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_gallery3"
+        android:name="sg.edu.triofit.ui.gallery.GalleryFragment"
+        android:label="@string/menu_bmiInformation"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_gallery4"
+        android:name="sg.edu.triofit.ui.gallery.GalleryFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_slideshow2"
+        android:name="sg.edu.triofit.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_caloriesTracker"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
         android:id="@+id/nav_home"
         android:name="sg.edu.triofit.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_video"
         tools:layout="@layout/fragment_home" />
 
     <fragment

@@ -128,19 +128,51 @@ public class Profile extends AppCompatActivity {
                     Toast.makeText(Profile.this,"Home",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
+
                 }
                 else if (item.getItemId() == R.id.nav_profile)
                 {
                     Toast.makeText(Profile.this,"Profile",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),Profile.class);
                     startActivity(intent);
+
                 }
                 else if (item.getItemId() == R.id.nav_settings)
                 {
                     Toast.makeText(Profile.this,"Settings",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),EditProfile.class);
                     startActivity(intent);
+
                 }
+                else if (item.getItemId() == R.id.nav_caloriestracker)
+                {
+                    Toast.makeText(Profile.this,"Calories Tracker",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),caloriesTracking.class);
+                    startActivity(intent);
+
+                }
+                else if (item.getItemId() == R.id.nav_bmi)
+                {
+                    Toast.makeText(Profile.this,"BMI Information",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),bmiInformation.class);
+                    startActivity(intent);
+
+                }
+                else if (item.getItemId() == R.id.nav_video)
+                {
+                    Toast.makeText(Profile.this,"Workout Videos",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),CatalogueActivity.class);
+                    startActivity(intent);
+
+                }
+                else if (item.getItemId() == R.id.nav_logout)
+                {
+                    Toast.makeText(Profile.this,"Logged out",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
+
+                }
+
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;

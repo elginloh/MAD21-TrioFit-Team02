@@ -12,5 +12,9 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
+    <string name="menu_bmiInformation">BMI Information</string>
+    <string name="menu_caloriesTracker">Calories Tracker</string>
+    <string name="menu_video">Workout Videos</string>
     <string name="menu_settings">Settings</string>
+    <string name="menu_logout">Log Out</string>
 </resources>
