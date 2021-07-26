@@ -1,11 +1,16 @@
 package sg.edu.triofit;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,11 +28,14 @@ import java.net.CookieHandler;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+    //Navi
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.nav_activity_main);
 
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
@@ -47,12 +56,43 @@ public class MainActivity extends AppCompatActivity {
         profileBtn = findViewById(R.id.profileBtn);
         pfp = findViewById(R.id.pfp);
 
-        //Retrieve from intent
-//        Intent intent = getIntent();
-//        String name = intent.getStringExtra("name");
-//        Float bmi = intent.getFloatExtra("bmi",0);
-//        String pass = intent.getStringExtra("password");
+        //Navi
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
 
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Navi
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId()== R.id.nav_home)
+                {
+                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_profile)
+                {
+                    Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Profile.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_settings)
+                {
+                    Toast.makeText(MainActivity.this,"Settings",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                    startActivity(intent);
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
 
 
         //set welcome text
@@ -126,5 +166,15 @@ public class MainActivity extends AppCompatActivity {
             message = "BMI Status: You need to exercise and eat healthy";
         }
         return message;
+    }
+
+    //Nav Bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,20 +1,33 @@
 package sg.edu.triofit;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class bmiInformation extends AppCompatActivity {
     List<String> bmiInfo = new ArrayList<>();
+
+    //Navi
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmi_information);
+        setContentView(R.layout.nav_activity_bmi_information);
 
 
 
@@ -35,6 +48,47 @@ public class bmiInformation extends AppCompatActivity {
         typeInfo.setText(bmiInfo.get(1)); //get second first data in list
         risk.setText(bmiInfo.get(2)); //get from third data in list
         solution.setText(bmiInfo.get(3)); //get from fourth data in list
+
+
+
+        //Navi
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
+
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Navi
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId()== R.id.nav_home)
+                {
+                    Toast.makeText(bmiInformation.this,"Home",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_profile)
+                {
+                    Toast.makeText(bmiInformation.this,"Profile",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Profile.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_settings)
+                {
+                    Toast.makeText(bmiInformation.this,"Settings",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                    startActivity(intent);
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
     }
 
     public List<String> bmiCheck(Float bmi){
@@ -76,5 +130,15 @@ public class bmiInformation extends AppCompatActivity {
             bmiInfo.add(solution);
         }
         return bmiInfo;
+    }
+
+    //Nav Bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

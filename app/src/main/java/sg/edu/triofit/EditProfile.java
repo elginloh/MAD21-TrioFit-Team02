@@ -2,12 +2,16 @@ package sg.edu.triofit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -18,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -34,10 +39,15 @@ public class EditProfile extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference();
     UserData user = LoginActivity.userInfo;
+
+    //Nav
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.nav_activity_editeditprofile);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         /*---------------Variables---------------*/
@@ -71,6 +81,44 @@ public class EditProfile extends AppCompatActivity {
         {
             Picasso.get().load(user.getPfp()).into(profilePic);
         }
+
+        //Navi
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
+
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Navi
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId()== R.id.nav_home)
+                {
+                    Toast.makeText(EditProfile.this,"Home",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_profile)
+                {
+                    Toast.makeText(EditProfile.this,"Profile",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Profile.class);
+                    startActivity(intent);
+                }
+                else if (item.getItemId() == R.id.nav_settings)
+                {
+                    Toast.makeText(EditProfile.this,"Settings",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                    startActivity(intent);
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,4 +220,15 @@ public class EditProfile extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(mUri));
     }
+
+    //Nav Bar
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
