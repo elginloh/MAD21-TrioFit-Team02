@@ -133,7 +133,6 @@ public class LoginActivity extends AppCompatActivity {
 //                        intent.putExtra("bmi",BMIFromDB);
 //                        intent.putExtra("number",numberFromDB);
                         userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB, imageUrl);
-
                         startActivity(intent);
 
                     }
