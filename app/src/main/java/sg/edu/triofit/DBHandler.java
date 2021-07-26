@@ -35,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
 
-    public static int DATABASE_VERSION = 28;
+    public static int DATABASE_VERSION = 29;
 
     public  DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
     {
@@ -82,7 +82,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String varName9 = ""
                 + "INSERT INTO \"CateVideo\" VALUES ('KOCPftPnAF0;KzBZ02EAJvE;zzD80vCLq0Y;EHR3Rl26-4A;BKyvTYuxWZE;o5fXYaJ3owA;ClzTDsQDC0E;zOPTihGAito;eUxNn79WYkA');";
         String varName10 = ""
-                + "INSERT INTO \"CateVideo\" VALUES ('KOCPftPnAF0;zbayPYgUWUw;_kGESn8Arr;MtvBzgeUrZ8;C7NnlF0-p60;4cOvJdy7CQ0;TVXcGi3St7g;thLQOqsVp30;mxHw9tYdyA4');";
+                + "INSERT INTO \"CateVideo\" VALUES ('bRjT1asH1kw;zbayPYgUWUw;brFHyOtTwH4;MtvBzgeUrZ8;C7NnlF0-p60;4cOvJdy7CQ0;TVXcGi3St7g;thLQOqsVp30;mxHw9tYdyA4');";
         String varName11 = ""
                 + "INSERT INTO \"CateVideo\" VALUES ('v7AYKMP6rOE;plL13JF5BHA;2137wAXvufE;SedzswEwpPw;VfSlEgg4ApE;XeXz8fIZDCE;FhcZuQRC-mI;-Mirm7LKvKk;YLSUfYjpltU;BPobdbmzY9o');";
         String varName12 = ""
