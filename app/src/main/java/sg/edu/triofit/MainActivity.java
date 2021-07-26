@@ -10,9 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
-        Button bmiBtn, exerBtn, idkBtn;
-        ImageView profileBtn;
+        Button bmiBtn, exerBtn, caloriesBtn;
+        ImageView profileBtn, pfp;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
@@ -36,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         bmiInfo = findViewById(R.id.bmiInfo);
         bmiBtn = findViewById(R.id.bmiBtn);
         exerBtn = findViewById(R.id.exerBtn);
-        idkBtn = findViewById(R.id.idkBtn);
+        caloriesBtn = findViewById(R.id.caloriesBtn);
         profileBtn = findViewById(R.id.profileBtn);
+        pfp = findViewById(R.id.pfp);
 
         //Retrieve from intent
 //        Intent intent = getIntent();
@@ -54,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         exerInfo.setText("Ever want to do exercises but do not know how to start? Fear not, we will be providing information and tutorial videos for you to follow through to exercise.");
         bmiInfo.setText("Here are information that would show you the current bmi status and information and some information in how you can see on helping in keeping your bmi in ideal range.");
         idkyet.setText("If have enough time this slot will be added for the usage of API");
+        if (user.getPfp().equals("null"))
+        {
+            pfp.setImageResource(R.mipmap.ic_launcher_round);
+        }
+        else
+        {
+            Picasso.get().load(user.getPfp()).into(pfp);
+        }
 
         //onClicks
         bmiBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        idkBtn.setOnClickListener(new View.OnClickListener() {
+        caloriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Still waiting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, caloriesTracking.class);
+                startActivity(intent);
             }
         });
 
