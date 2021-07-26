@@ -3,8 +3,6 @@ package sg.edu.triofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
-
-import java.net.CookieHandler;
-import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*---------------Variables---------------*/
         TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
-        Button bmiBtn, exerBtn, idkBtn;
+        Button bmiBtn, exerBtn, caloriesBtn;
         ImageView profileBtn, pfp;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
@@ -43,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         bmiInfo = findViewById(R.id.bmiInfo);
         bmiBtn = findViewById(R.id.bmiBtn);
         exerBtn = findViewById(R.id.exerBtn);
-        idkBtn = findViewById(R.id.idkBtn);
+        caloriesBtn = findViewById(R.id.caloriesBtn);
         profileBtn = findViewById(R.id.profileBtn);
         pfp = findViewById(R.id.pfp);
 
@@ -89,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        idkBtn.setOnClickListener(new View.OnClickListener() {
+        caloriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Still waiting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, caloriesTracking.class);
+                startActivity(intent);
             }
         });
 
