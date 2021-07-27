@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#8071AFD1"
     android:layout_height="match_parent">
 
     <com.google.android.youtube.player.YouTubePlayerView
@@ -25,6 +26,7 @@
         android:layout_marginBottom="26dp"
         app:cardCornerRadius="26dp"
         app:cardElevation="10dp"
+        app:cardBackgroundColor="#7B8BAF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +46,7 @@
                 android:layout_marginTop="40dp"
                 android:justificationMode="inter_word"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <Button

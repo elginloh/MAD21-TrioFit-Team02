@@ -53,6 +53,7 @@ public class EditProfile extends AppCompatActivity {
         /*---------------Variables---------------*/
         EditText editNumber, editEmail, editHeight, editWeight, editAge;
         Button updateBtn,changePW, changepic;
+        TextView back;
 
         /*---------------Variables---------------*/
 
@@ -66,6 +67,7 @@ public class EditProfile extends AppCompatActivity {
         changePW  = findViewById(R.id.btn_ChangePassword);
         changepic = findViewById(R.id.changeImg);
         profilePic = findViewById(R.id.editPfp);
+        back = findViewById(R.id.profileBack7);
 
         //setDefaultText
         editNumber.setText(user.getNumber());
@@ -146,6 +148,7 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
+        //set onclick
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,6 +180,14 @@ public class EditProfile extends AppCompatActivity {
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent , 2);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProfile.this, Profile.class);
+                startActivity(intent);
             }
         });
     }

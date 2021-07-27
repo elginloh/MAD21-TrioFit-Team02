@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,11 @@ public class ChangePassword extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
 
 
+        //variable
+        TextView back;
+
+        //retrieve from layout
+        back = findViewById(R.id.profileBack5);
         oldPW = findViewById(R.id.et_OldPassword);
         newPW = findViewById(R.id.et_NewPassword);
         cfmNewPW = findViewById(R.id.et_CfmNewPassword);
@@ -39,6 +45,7 @@ public class ChangePassword extends AppCompatActivity {
         String oldPWFromDB = user.getPassword();
 
 
+        //set onclick
         changePW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +72,14 @@ public class ChangePassword extends AppCompatActivity {
                     oldPW.setError("Old password is incorrect");
                     oldPW.requestFocus();
                 }
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChangePassword.this, EditProfile.class);
+                startActivity(intent);
             }
         });
 

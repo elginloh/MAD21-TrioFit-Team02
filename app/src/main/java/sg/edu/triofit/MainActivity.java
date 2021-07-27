@@ -3,6 +3,7 @@ package sg.edu.triofit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -38,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.nav_activity_main);
 
         /*---------------Variables---------------*/
-        TextView welcomeusername, bmistatus, exerInfo, bmiInfo, idkyet;
-        Button bmiBtn, exerBtn, caloriesBtn;
-        ImageView profileBtn, pfp;
+        TextView welcomeusername, bmistatus, exerInfo, bmiInfo;
+        ImageView pfp;
+        CardView calories, profile, exercise, information;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
@@ -48,12 +49,11 @@ public class MainActivity extends AppCompatActivity {
         welcomeusername = findViewById(R.id.wlcuser);
         bmistatus = findViewById(R.id.bmistatus);
         exerInfo = findViewById(R.id.exerInfo);
-        idkyet = findViewById(R.id.idkyet);
+        calories = findViewById(R.id.calories);
         bmiInfo = findViewById(R.id.bmiInfo);
-        bmiBtn = findViewById(R.id.bmiBtn);
-        exerBtn = findViewById(R.id.exerBtn);
-        caloriesBtn = findViewById(R.id.caloriesBtn);
-        profileBtn = findViewById(R.id.profileBtn);
+        profile = findViewById(R.id.profile);
+        exercise = findViewById(R.id.exercise);
+        information = findViewById(R.id.information);
         pfp = findViewById(R.id.pfp);
 
         //Navi
@@ -131,9 +131,6 @@ public class MainActivity extends AppCompatActivity {
 
         welcomeusername.setText("Welcome back, " + user.getUsername());
         bmistatus.setText(bmiCheck(user.getBmi()));
-        exerInfo.setText("Ever want to do exercises but do not know how to start? Fear not, we will be providing information and tutorial videos for you to follow through to exercise.");
-        bmiInfo.setText("Here are information that would show you the current bmi status and information and some information in how you can see on helping in keeping your bmi in ideal range.");
-        idkyet.setText("If have enough time this slot will be added for the usage of API");
         if (user.getPfp().equals("null"))
         {
             pfp.setImageResource(R.mipmap.ic_launcher_round);
@@ -143,25 +140,7 @@ public class MainActivity extends AppCompatActivity {
             Picasso.get().load(user.getPfp()).into(pfp);
         }
 
-        //onClicks
-        bmiBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, bmiTrend.class);
-                startActivity(intent);
-            }
-        });
-
-        exerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CatalogueActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-        caloriesBtn.setOnClickListener(new View.OnClickListener() {
+        calories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, caloriesTracking.class);
@@ -169,7 +148,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        profileBtn.setOnClickListener(new View.OnClickListener() {
+        exercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CatalogueActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, bmiInformation.class);
+                startActivity(intent);
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Profile.class);
