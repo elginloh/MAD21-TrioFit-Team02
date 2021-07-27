@@ -51,6 +51,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
 
     //youtube api dependencies
     implementation files('libs\\YouTubeAndroidPlayerApi.jar')
