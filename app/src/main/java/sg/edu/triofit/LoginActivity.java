@@ -77,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 //call method
                 isUser(username,password);
 
+
             }
         });
 
@@ -153,7 +154,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
 //
 
 
