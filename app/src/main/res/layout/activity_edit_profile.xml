@@ -4,146 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8071AFD1"
     tools:context=".EditProfile">
+
+    <TextView
+        android:id="@+id/profileBack7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Back"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/changeImg"
-        android:layout_width="393dp"
-        android:layout_height="45dp"
+        android:layout_width="152dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:text="Change Picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAge" />
-
-    <Button
-        android:id="@+id/btn_ChangePassword"
-        android:layout_width="393dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="25dp"
-        android:text="Change Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
+        android:background="@drawable/custom_buttom"
+        android:text="Change Photo"
+        app:backgroundTint="#7B8BAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateBtn" />
 
     <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="393dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:text="Update"
+        android:id="@+id/btn_ChangePassword"
+        android:layout_width="152dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_buttom"
+        android:text="Change Password"
+        app:backgroundTint="#7B8BAF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeImg" />
+        app:layout_constraintTop_toBottomOf="@+id/updateBtn" />
 
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="40dp"
-        android:text="Age"
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_buttom"
+        android:text="Update"
+        app:backgroundTint="#7B8BAF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+        app:layout_constraintTop_toBottomOf="@+id/editAge" />
 
     <EditText
         android:id="@+id/editAge"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ages"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Age"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView43"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editWeight" />
 
     <EditText
         android:id="@+id/editHeight"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/height"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Height"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView37"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editEmail" />
-
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="52dp"
-        android:text="Height (M)"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="32dp"
-        android:text="Number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPfp" />
 
     <EditText
         android:id="@+id/editNumber"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Phone Number"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView38"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPfp" />
 
     <EditText
         android:id="@+id/editEmail"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView40"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNumber" />
-
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="40dp"
-        android:text="Email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
-
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="36dp"
-        android:text="Weight (KG)"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <EditText
         android:id="@+id/editWeight"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/weight"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Weight"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView42"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editHeight" />
 
     <ImageView

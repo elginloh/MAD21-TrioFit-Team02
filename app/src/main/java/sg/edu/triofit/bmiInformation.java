@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ public class bmiInformation extends AppCompatActivity {
 
 
         /*---------------Variables---------------*/
-        TextView bmiType, typeInfo, risk, solution;
+        TextView bmiType, typeInfo, risk, solution, back;
         UserData user = LoginActivity.userInfo;
         /*---------------Variables---------------*/
 
@@ -41,6 +42,7 @@ public class bmiInformation extends AppCompatActivity {
         typeInfo = findViewById(R.id.typeInfo);
         risk = findViewById(R.id.risk);
         solution = findViewById(R.id.solution);
+        back = findViewById(R.id.profileBack2);
 
         //set info
         bmiInfo = bmiCheck(user.getBmi());
@@ -112,6 +114,15 @@ public class bmiInformation extends AppCompatActivity {
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
+            }
+        });
+
+        //set onclick
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(bmiInformation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

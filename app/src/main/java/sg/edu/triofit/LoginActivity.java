@@ -158,7 +158,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 //
-
+    public void onBackPressed() {
+        //do nothing
+    }
 
     //this function is to check whether username and password both matches the database information
 //    public boolean isValidCredentials(String username, String password) {

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -27,6 +29,13 @@ public class CatalogueActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_catalogue);
+
+
+        //variable
+        TextView back;
+
+        //retrieve from layout
+        back = findViewById(R.id.profileBack6);
 
         //calling functions from database to retrieve data wanted
         DBHandler dbHandler = new DBHandler(this,null,null,1);
@@ -104,6 +113,15 @@ public class CatalogueActivity extends AppCompatActivity {
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
+            }
+        });
+
+        //set onclick
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CatalogueActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
