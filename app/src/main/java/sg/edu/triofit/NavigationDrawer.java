@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -23,12 +25,23 @@ import androidx.appcompat.widget.Toolbar;
 public class NavigationDrawer extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    UserData user = LoginActivity.userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        ImageView navIMG = findViewById(R.id.nav_pic);
+
+        if (user.getPfp().equals("null"))
+        {
+            navIMG.setImageResource(R.mipmap.ic_launcher_round);
+        }
+        else
+        {
+            Picasso.get().load(user.getPfp()).into(navIMG);
+        }
+
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
