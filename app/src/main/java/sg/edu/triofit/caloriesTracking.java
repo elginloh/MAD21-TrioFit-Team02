@@ -48,6 +48,7 @@ public class caloriesTracking extends AppCompatActivity {
         /*---------------Variables---------------*/
         Button caloriesBtn, searchBtn;
         EditText breakfast, lunch, dinner, other;
+        TextView back;
         /*---------------Variables---------------*/
 
         //Retrieve from layout
@@ -57,6 +58,7 @@ public class caloriesTracking extends AppCompatActivity {
         dinner = findViewById(R.id.dinner);
         other = findViewById(R.id.other);
         searchBtn = findViewById(R.id.search);
+        back = findViewById(R.id.profileBack3);
 
 
         calendar = Calendar.getInstance();
@@ -127,7 +129,7 @@ public class caloriesTracking extends AppCompatActivity {
             }
         });
 
-
+        //set oncliks
         caloriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +145,14 @@ public class caloriesTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(caloriesTracking.this, SearchCalories.class);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(caloriesTracking.this, MainActivity.class);
                 startActivity(intent);
             }
         });

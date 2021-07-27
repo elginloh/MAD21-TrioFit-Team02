@@ -27,7 +27,7 @@ public class SearchCalories extends AppCompatActivity {
     //Navi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-
+    TextView breakfast, lunch, dinner, other, total;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference().child("User");
     UserData user = LoginActivity.userInfo;
@@ -39,7 +39,7 @@ public class SearchCalories extends AppCompatActivity {
         /*---------------Variables---------------*/
         Button searchBtn;
         EditText searchDate;
-        TextView breakfast, lunch, dinner, other, total;
+        TextView back;
 
         /*---------------Variables---------------*/
 
@@ -51,6 +51,7 @@ public class SearchCalories extends AppCompatActivity {
         dinner = findViewById(R.id.searchDinner);
         other = findViewById(R.id.searchOther);
         total = findViewById(R.id.searchTotal);
+        back = findViewById(R.id.profileBack4);
 
         //Navi
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -117,7 +118,7 @@ public class SearchCalories extends AppCompatActivity {
         });
 
 
-
+        //set onclicks
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +147,7 @@ public class SearchCalories extends AppCompatActivity {
                                 dinner.setText("Dinner Calories: " + searchDinner);
                                 other.setText("Other/Snacks Calories: " + searchOther);
                                 total.setText("Total Calories: " + searchTotal.toString());
+                                textViewVisible();
                             }
                             else
                             {
@@ -162,6 +164,14 @@ public class SearchCalories extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SearchCalories.this, caloriesTracking.class);
+                startActivity(intent);
+            }
+        });
+
     }
     //Nav Bar
     @Override
@@ -171,5 +181,14 @@ public class SearchCalories extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void textViewVisible()
+    {
+        breakfast.setVisibility(View.VISIBLE);
+        lunch.setVisibility(View.VISIBLE);
+        dinner.setVisibility(View.VISIBLE);
+        other.setVisibility(View.VISIBLE);
+        total.setVisibility(View.VISIBLE);
     }
 }

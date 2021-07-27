@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8071AFD1"
     tools:context=".MainActivity">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -18,105 +24,137 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="346dp"
-                android:layout_height="125dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="35dp"
-                app:cardBackgroundColor="#81d4fa"
+                android:id="@+id/information"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="29dp"
+                app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView2">
+                app:layout_constraintTop_toBottomOf="@+id/exercise">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <Button
-                        android:id="@+id/caloriesBtn"
-                        android:layout_width="85dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="252dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="6dp"
-                        android:backgroundTint="#4fc3f7"
-                        android:text="Button"
-                        android:textSize="10sp"
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/idkyet" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_bmi_info" />
 
                     <TextView
-                        android:id="@+id/idkyet"
-                        android:layout_width="333dp"
-                        android:layout_height="85dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="TextView"
-                        android:textColor="#F9F9F9"
-                        android:textSize="16sp"
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="44dp"
+                        android:text="BMI Information"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="346dp"
-                android:layout_height="125dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="32dp"
-                app:cardBackgroundColor="#81d4fa"
+                android:id="@+id/calories"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/cardView3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView1">
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/exercise"
+                app:layout_constraintTop_toBottomOf="@+id/bmistatus" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_calorie_tracker" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="44dp"
+                        android:text="Calories Tracker"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profile"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="#728FCE"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/information"
+                app:layout_constraintTop_toBottomOf="@+id/calories" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <Button
-                        android:id="@+id/exerBtn"
-                        android:layout_width="85dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="252dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="6dp"
-                        android:backgroundTint="#4fc3f7"
-                        android:text="Exercise"
-                        android:textSize="10sp"
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="30dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/exerInfo" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/user" />
 
                     <TextView
-                        android:id="@+id/exerInfo"
-                        android:layout_width="333dp"
-                        android:layout_height="85dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="TextView"
-                        android:textColor="#F9F9F9"
-                        android:textSize="16sp"
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="44dp"
+                        android:text="User Profile"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.cardview.widget.CardView>
 
             <ImageView
@@ -131,10 +169,10 @@
 
             <TextView
                 android:id="@+id/wlcuser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="219dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
                 android:text="Welcome back, User"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -143,10 +181,10 @@
 
             <TextView
                 android:id="@+id/bmistatus"
-                android:layout_width="183dp"
-                android:layout_height="33dp"
+                android:layout_width="217dp"
+                android:layout_height="32dp"
                 android:layout_marginStart="26dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="132dp"
                 android:text="Your BMI is looking good!"
                 android:textSize="12sp"
@@ -156,67 +194,50 @@
                 app:layout_constraintTop_toBottomOf="@+id/wlcuser" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView1"
-                android:layout_width="346dp"
-                android:layout_height="125dp"
-                android:layout_marginStart="34dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="31dp"
-                app:cardBackgroundColor="#81d4fa"
+                android:id="@+id/exercise"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="65dp"
+                app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/cardView2"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pfp"
-                app:layout_constraintVertical_chainStyle="packed">
+                app:layout_constraintTop_toBottomOf="@+id/pfp" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/bmiInfo"
-                        android:layout_width="333dp"
-                        android:layout_height="85dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="TextView"
-                        android:textColor="#F9F9F9"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <Button
-                        android:id="@+id/bmiBtn"
-                        android:layout_width="85dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="252dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="6dp"
-                        android:backgroundTint="#4fc3f7"
-                        android:text="Trend"
-                        android:textSize="10sp"
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="30dp"
+                        android:contentDescription="Exercise"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/bmiInfo" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_video" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="44dp"
+                        android:text="Exercise Guide"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:id="@+id/profileBtn"
-                android:layout_width="41dp"
-                android:layout_height="41dp"
-                android:layout_marginStart="219dp"
-                android:layout_marginTop="96dp"
-                android:layout_marginEnd="36dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pfp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profilebtn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
