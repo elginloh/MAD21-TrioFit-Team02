@@ -24,7 +24,6 @@ and guiding your workouts at your fingertips.
 - Stay motivated - Tons of workout routines and guides to keep you fresh and fun
 
 Navigation Bar
-
 In TrioFit, Navigation Bar is implemented for users to easily find our features. They can
 save the hassle to find the features they want to go in a fingertip.
 
