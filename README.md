@@ -1,9 +1,9 @@
 # MAD21-TrioFit-Team02
 
 ## Team Members
-# Elgin Loh Qing heng, S10207995H
-# Ng Jun Heng, S10208354K
-# Seem Shi Xian Ryan, S10205740
+### Elgin Loh Qing heng, S10207995H
+### Ng Jun Heng, S10208354K
+### Seem Shi Xian Ryan, S10205740
 
 ## Description of TrioFit
 
