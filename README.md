@@ -24,10 +24,15 @@ Design app logo
 ## All relevant appendices
 ### Jun Heng
 1.(Add Navigation Drawer into existing activities)https://www.youtube.com/watch?v=3SHLg2isKi4
+
 2.(Save Data in Firebase Realtime Database) https://www.youtube.com/watch?v=WqIFBuWNY6o&t=528s
+
 3.(Retrieve Data from Firebase Database) https://www.youtube.com/watch?v=E9drbKeVG7Y&t=681s
+
 4.(Navigate through activities with Navigation Bar) https://www.youtube.com/watch?v=FqUDQ7cZ01o&t=759s
+
 5. (Creating Sidebar Navigation Drawer) https://www.youtube.com/watch?v=dpE8kzZznAU
+
 6. (Connect to Firebase Realtime database) https://www.youtube.com/watch?v=wa8OrQ_e76M&t=501s
 
 ### Ryan Seem
