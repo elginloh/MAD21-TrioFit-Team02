@@ -6,7 +6,7 @@
 ### Seem Shi Xian Ryan, S10205740
 
 ## Description of TrioFit
-###Is it hard to tracks your daily calories intake? Do you know how many calories you consume in one day?
+Is it hard to tracks your daily calories intake? Do you know how many calories you consume in one day?
 That's why TrioFit is here to help! TrioFit is a simple and easy application to use where the features and functions
 are easy to navigate and utilize.
 
@@ -15,12 +15,12 @@ What can you do with TrioFit?
 By using TrioFit is like having a trainer tracking your calories, showing  your BMI information
 and guiding your workouts at your fingertips.
 
--Create Profile - Setting your personal information such as name, height, weight and etc, which also use for the calculation of your BMI
--Customize Profile - Customize personal information along the way while using the application.
--Calorie Tracker - Customize your personal daily calorie intake.
--Track Past Calorie Intake -  Analyse calorie intake of chosen date at a glance.
--Learn From Professionals - Workout guide by professionals from youtube that are highly recommended.
--Stay motivated - Tons of workout routines and guides to keep you fresh and fun
+- Create Profile - Setting your personal information such as name, height, weight and etc, which also use for the calculation of your BMI
+- Customize Profile - Customize personal information along the way while using the application.
+- Calorie Tracker - Customize your personal daily calorie intake.
+- Track Past Calorie Intake -  Analyse calorie intake of chosen date at a glance.
+- Learn From Professionals - Workout guide by professionals from youtube that are highly recommended.
+- Stay motivated - Tons of workout routines and guides to keep you fresh and fun
 
 Navigation Bar
 In TrioFit, Navigation Bar is implemented for users to easily find our features. They can
