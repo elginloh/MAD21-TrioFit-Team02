@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:text="Back"
+                android:text="@string/back"
                 android:textColor="@android:color/holo_blue_dark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,9 +40,13 @@
                 android:layout_height="53dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="1dp"
                 android:background="@drawable/custom_buttom"
-                android:text="Change Photo"
+                android:text="@string/change_photo"
                 app:backgroundTint="#7B8BAF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_ChangePassword"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/updateBtn" />
 
@@ -50,12 +54,16 @@
                 android:id="@+id/btn_ChangePassword"
                 android:layout_width="152dp"
                 android:layout_height="53dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
+                android:layout_marginBottom="2dp"
                 android:background="@drawable/custom_buttom"
-                android:text="Change Password"
+                android:text="@string/change_password"
                 app:backgroundTint="#7B8BAF"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/changeImg"
                 app:layout_constraintTop_toBottomOf="@+id/updateBtn" />
 
             <Button
@@ -66,7 +74,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/custom_buttom"
-                android:text="Update"
+                android:text="@string/update"
                 app:backgroundTint="#7B8BAF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -84,13 +92,14 @@
                 android:drawableStart="@drawable/ages"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Age"
+                android:hint="@string/age"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editWeight" />
+                app:layout_constraintTop_toBottomOf="@+id/editWeight"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/editHeight"
@@ -103,13 +112,14 @@
                 android:drawableStart="@drawable/height"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Height"
+                android:hint="@string/height"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/editEmail"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/editNumber"
@@ -122,13 +132,14 @@
                 android:drawableStart="@drawable/phone"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Phone Number"
+                android:hint="@string/phone_number"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editPfp" />
+                app:layout_constraintTop_toBottomOf="@+id/editPfp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/editEmail"
@@ -141,13 +152,14 @@
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editNumber" />
+                app:layout_constraintTop_toBottomOf="@+id/editNumber"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/editWeight"
@@ -160,13 +172,14 @@
                 android:drawableStart="@drawable/weight"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Weight"
+                android:hint="@string/weight"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editHeight" />
+                app:layout_constraintTop_toBottomOf="@+id/editHeight"
+                android:autofillHints="" />
 
             <ImageView
                 android:id="@+id/editPfp"

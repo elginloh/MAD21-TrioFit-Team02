@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:text="Back"
+                android:text="@string/back"
                 android:textColor="@android:color/holo_blue_dark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,14 +45,15 @@
                 android:drawableStart="@drawable/ic_baseline_add_24"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Others/Snacks"
+                android:hint="@string/others_snacks"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dinner" />
+                app:layout_constraintTop_toBottomOf="@+id/dinner"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/breakfast"
@@ -65,14 +66,15 @@
                 android:drawableStart="@drawable/breakfast"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Breakfast"
+                android:hint="@string/breakfast"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                app:layout_constraintTop_toBottomOf="@+id/textView32"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/lunch"
@@ -85,14 +87,15 @@
                 android:drawableStart="@drawable/ic_baseline_lunch_dining_24"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Lunch"
+                android:hint="@string/lunch"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/breakfast" />
+                app:layout_constraintTop_toBottomOf="@+id/breakfast"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/dinner"
@@ -105,14 +108,15 @@
                 android:drawableStart="@drawable/ic_baseline_dinner_dining_24"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Dinner"
+                android:hint="@string/dinner"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lunch" />
+                app:layout_constraintTop_toBottomOf="@+id/lunch"
+                android:autofillHints="" />
 
             <Button
                 android:id="@+id/submitdaily"
@@ -122,7 +126,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/custom_buttom"
-                android:text="Update"
+                android:text="@string/update"
                 app:backgroundTint="#7B8BAF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -136,7 +140,7 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="50dp"
-                android:text="Input your calories intake for today, update your calories intake for today"
+                android:text="@string/input_your_calories_intake_for_today_update_your_calories_intake_for_today"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +155,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/custom_buttom"
-                android:text="Search Date"
+                android:text="@string/search_date"
                 app:backgroundTint="#7B8BAF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
