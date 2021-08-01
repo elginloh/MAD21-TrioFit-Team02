@@ -1,12 +1,23 @@
 # MAD21-TrioFit-Team02
 
 ## Team Members
-Ng Jun Heng, S10208354K
-Seem Shi Xian Ryan, S10205740
+# Elgin Loh Qing heng, S10207995H
+# Ng Jun Heng, S10208354K
+# Seem Shi Xian Ryan, S10205740
 
 ## Description of TrioFit
 
 ## Roles and Contributions
+### Elgin Loh
+- UI/UX
+- Retrieve/Send Data to Real-Time Database
+- Store Images in Firebase Storage
+- Calories Tracker
+- Information of BMI based on User 
+- User Uploads Picture to Firebase Storage to update Profile Picture(Able to Change Picture)
+- Search Function for Calories
+- Edit Profile
+
 ### Jun Heng
 - Login And Register function
 - Connect Application to Firebase
@@ -22,6 +33,19 @@ Seem Shi Xian Ryan, S10205740
 
 
 ## All relevant appendices
+### Elgin Loh
+1. Information for Under Weight
+- https://patient.info/news-and-features/problems-caused-by-being-underweight
+
+2. Information for Moderate Weight
+- https://www.healthhub.sg/live-healthy/410/Healthy%20Weight
+
+3. Information for Overweight/Obese
+- https://www.webmd.com/diet/obesity/obesity-health-risks#1
+
+4. Change Photo
+- https://www.youtube.com/watch?v=9-oa4OS7lUQ
+
 ### Jun Heng
 1.(Add Navigation Drawer into existing activities)
 - https://www.youtube.com/watch?v=3SHLg2isKi4
