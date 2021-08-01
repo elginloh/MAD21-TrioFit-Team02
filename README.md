@@ -22,7 +22,7 @@ and guiding your workouts at your fingertips.
 - Learn From Professionals - Workout guide by professionals from youtube that are highly recommended.
 - Stay motivated - Tons of workout routines and guides to keep you fresh and fun
 
-- Navigation Bar
+- Navigation Bar\n
 In TrioFit, Navigation Bar is implemented for users to easily find our features. They can
 save the hassle to find the features they want to go in a fingertip.
 
