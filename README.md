@@ -24,13 +24,16 @@ and guiding your workouts at your fingertips.
 - Stay motivated - Tons of workout routines and guides to keep you fresh and fun
 
 Navigation Bar
+
 In TrioFit, Navigation Bar is implemented for users to easily find our features. They can
 save the hassle to find the features they want to go in a fingertip.
+
 
 Profile Pictures
 
 TrioFit also allows users to add pictures for their own profiles. User can
 change profile anytime they want for their own satisfaction.
+
 
 Calorie Tracker
 
@@ -39,11 +42,13 @@ You can customize your calories intake till the end of the day and with this, yo
 This helps to reference your past calories and know how much you have consumed for that day. You can ensure that your calorie intake meet 
 your desire calorie intake for the day.
 
+
 BMI Information
 
 In BMI Information section, it shows you your BMI information using the data you have input from your profile. It will indicate whether you are "Under Weight", 
 "Moderate Weight" and "Overweight".After indicating which BMI Status you fall under, it will display corresponding information relevant to your BMI Status 
 where it will guide you on how to achieve a healthy weight.
+
 
 Workout Guide
 
