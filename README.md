@@ -8,17 +8,17 @@ Seem Shi Xian Ryan, S10205740
 
 ## Roles and Contributions
 ### Jun Heng
-Login And Register function
-Connect Application to Firebase
-Retrieving Data from Real-Time database
-Navigation Bar 
-Change Password
+- Login And Register function
+- Connect Application to Firebase
+- Retrieving Data from Real-Time database
+- Navigation Bar 
+- Change Password
 
 ### Ryan Seem
-implented video guide feature
-implented youtube api
-implented pictures and videos into database
-Design app logo
+- implented video guide feature
+- implented youtube api
+- implented pictures and videos into database
+- Design app logo
 
 
 ## All relevant appendices
