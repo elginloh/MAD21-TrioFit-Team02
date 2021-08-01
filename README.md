@@ -6,6 +6,44 @@
 ### Seem Shi Xian Ryan, S10205740
 
 ## Description of TrioFit
+###Is it hard to tracks your daily calories intake? Do you know how many calories you consume in one day?
+That's why TrioFit is here to help! TrioFit is a simple and easy application to use where the features and functions
+are easy to navigate and utilize.
+
+What can you do with TrioFit?
+
+By using TrioFit is like having a trainer tracking your calories, showing  your BMI information
+and guiding your workouts at your fingertips.
+
+-Create Profile - Setting your personal information such as name, height, weight and etc, which also use for the calculation of your BMI
+-Customize Profile - Customize personal information along the way while using the application.
+-Calorie Tracker - Customize your personal daily calorie intake.
+-Track Past Calorie Intake -  Analyse calorie intake of chosen date at a glance.
+-Learn From Professionals - Workout guide by professionals from youtube that are highly recommended.
+-Stay motivated - Tons of workout routines and guides to keep you fresh and fun
+
+Navigation Bar
+In TrioFit, Navigation Bar is implemented for users to easily find our features. They can
+save the hassle to find the features they want to go in a fingertip.
+
+Profile Pictures
+TrioFit also allows users to add pictures for their own profiles. User can
+change profile anytime they want for their own satisfaction.
+
+Calorie Tracker
+To use the calorie tracker in TrioFit, you just have to input your calories taken for each meal where it will stored in our database.
+You can customize your calories intake till the end of the day and with this, you can keep track of your daily calories for each meal.
+This helps to reference your past calories and know how much you have consumed for that day. You can ensure that your calorie intake meet 
+your desire calorie intake for the day.
+
+BMI Information
+In BMI Information section, it shows you your BMI information using the data you have input from your profile. It will indicate whether you are "Under Weight", 
+"Moderate Weight" and "Overweight".After indicating which BMI Status you fall under, it will display corresponding information relevant to your BMI Status 
+where it will guide you on how to achieve a healthy weight.
+
+Workout Guide
+In TrioFit, there are many of guides,routines and tips where it will be available to you , such as guides on working out,
+yoga, tips on running and nutrition and etc. With this, it can save you time and effort to find the guides.
 
 ## Roles and Contributions
 ### Elgin Loh
