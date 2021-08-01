@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.nav_activity_main);
 
         /*---------------Variables---------------*/
-        TextView welcomeusername, bmistatus, exerInfo, bmiInfo;
+        TextView welcomeusername, bmistatus;
         ImageView pfp;
         CardView calories, profile, exercise, information;
         UserData user = LoginActivity.userInfo;
@@ -48,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
         //Retrieve from layout
         welcomeusername = findViewById(R.id.wlcuser);
         bmistatus = findViewById(R.id.bmistatus);
-        exerInfo = findViewById(R.id.exerInfo);
         calories = findViewById(R.id.calories);
-        bmiInfo = findViewById(R.id.bmiInfo);
         profile = findViewById(R.id.profile);
         exercise = findViewById(R.id.exercise);
         information = findViewById(R.id.information);

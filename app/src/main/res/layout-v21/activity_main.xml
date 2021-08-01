@@ -27,10 +27,11 @@
                 android:id="@+id/information"
                 android:layout_width="175dp"
                 android:layout_height="175dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="29dp"
+                android:layout_marginTop="30dp"
                 app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/profile"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/exercise">
 
@@ -69,15 +70,13 @@
                 android:id="@+id/calories"
                 android:layout_width="175dp"
                 android:layout_height="175dp"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="59dp"
                 app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/exercise"
-                app:layout_constraintTop_toBottomOf="@+id/bmistatus" >
+                app:layout_constraintTop_toBottomOf="@+id/bmistatus">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -117,14 +116,13 @@
                 android:id="@+id/profile"
                 android:layout_width="175dp"
                 android:layout_height="175dp"
-                android:layout_marginStart="29dp"
                 android:layout_marginTop="29dp"
-                android:layout_marginEnd="16dp"
                 app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/information"
-                app:layout_constraintTop_toBottomOf="@+id/calories" >
+                app:layout_constraintTop_toBottomOf="@+id/calories">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -181,15 +179,12 @@
 
             <TextView
                 android:id="@+id/bmistatus"
-                android:layout_width="217dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="132dp"
+                android:layout_width="215dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="3dp"
                 android:text="Your BMI is looking good!"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/pfp"
                 app:layout_constraintTop_toBottomOf="@+id/wlcuser" />
 
@@ -197,12 +192,13 @@
                 android:id="@+id/exercise"
                 android:layout_width="175dp"
                 android:layout_height="175dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="59dp"
                 app:cardBackgroundColor="#728FCE"
                 app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/calories"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pfp" >
+                app:layout_constraintTop_toBottomOf="@+id/bmistatus">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
