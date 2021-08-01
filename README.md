@@ -98,10 +98,10 @@ yoga, tips on running and nutrition and etc. With this, it can save you time and
 4.(Navigate through activities with Navigation Bar)
 - https://www.youtube.com/watch?v=FqUDQ7cZ01o&t=759s
 
-5. (Creating Sidebar Navigation Drawer)
+5.(Creating Sidebar Navigation Drawer)
 - https://www.youtube.com/watch?v=dpE8kzZznAU
 
-6. (Connect to Firebase Realtime database) 
+6.(Connect to Firebase Realtime database) 
 - https://www.youtube.com/watch?v=wa8OrQ_e76M&t=501s
 
 ### Ryan Seem
