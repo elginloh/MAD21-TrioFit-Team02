@@ -16,6 +16,7 @@ import com.google.firebase.database.Query;
 
 public class ChangePassword extends AppCompatActivity {
 
+    //Reference to firebase based on link
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference();
     UserData user = LoginActivity.userInfo;
@@ -42,6 +43,7 @@ public class ChangePassword extends AppCompatActivity {
 
 //        oldPW.setText(user.getPassword());
 
+        //Get old password from user data class
         String oldPWFromDB = user.getPassword();
 
 
@@ -50,12 +52,15 @@ public class ChangePassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //if password from user data class is the same as user input
                 if(oldPW.getText().toString().equals(oldPWFromDB))
                 {
-
+                    // if new password matches cfm new password
                     if(newPW.getText().toString().equals(cfmNewPW.getText().toString()))
                     {
+                        //call saveData method
                         saveData(newPW.getText().toString());
+
                         Toast.makeText(getApplicationContext(),"Successfully changed password",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ChangePassword.this,Profile.class);
                         startActivity(intent);
@@ -88,7 +93,10 @@ public class ChangePassword extends AppCompatActivity {
 
     private void saveData(String newPassword)
     {
+        //Go back to firebase to find user table, username and then set password to new password
         mDatabase.child("User").child(user.getUsername()).child("password").setValue(newPassword);
+        
+        //Change the password in user data class
         user.setPassword(newPassword);
     }
 }

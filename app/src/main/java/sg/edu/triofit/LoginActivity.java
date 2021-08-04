@@ -28,13 +28,18 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     DBHandler dbHandler = new DBHandler(this, null ,null, 1);
+
+    // UserData class to store user data after login
     static UserData userInfo;
+
 //    DatabaseReference reference;
     FirebaseAuth auth;
     FirebaseUser user;
     //test
-    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference root = db.getReference().child("User");
+
+    //
+//    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+//    private DatabaseReference root = db.getReference().child("User");
 
     EditText etUsername,etPassword;
 
@@ -71,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 //                } else {
 //                    Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
 //                }
+                //Get user input
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
@@ -95,16 +101,22 @@ public class LoginActivity extends AppCompatActivity {
         //Checks user entered username to database
         Query checkUser = mDatabase.orderByChild("username").equalTo(username);
 
+        //checking
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // if user entered data exist
                 String passwordFromDB, nameFromDB, ageFromDB, numberFromDB, emailFromDB, imageUrl;
                 Float heightFromDB, weightFromDB, BMIFromDB;
-                if (snapshot.exists()) {
 
+                //if user exist
+                if (snapshot.exists()) {
+                    //set error to null
                     etPassword.setError(null);
+
                     //retrieve everything from firebase realtime database
+                    //created variable to store data retrieved from firebase
+                    //based on username they will create a data called username to store to data
 
                     passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
                     nameFromDB =  snapshot.child(username).child("username").getValue(String.class);
@@ -125,14 +137,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //
-//                        intent.putExtra("name",nameFromDB);
-//                        intent.putExtra("password", passwordFromDB);
-//                        intent.putExtra("age",ageFromDB);
-//                        intent.putExtra("email",emailFromDB);
-//                        intent.putExtra("height",heightFromDB);
-//                        intent.putExtra("weight",weightFromDB);
-//                        intent.putExtra("bmi",BMIFromDB);
-//                        intent.putExtra("number",numberFromDB);
+//
+                        //Store data using variable that i created to UserData class.
+                        //After user login, can use data from this class.
+
                         userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB, imageUrl);
                         startActivity(intent);
 

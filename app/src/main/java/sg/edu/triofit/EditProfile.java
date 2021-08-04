@@ -75,6 +75,7 @@ public class EditProfile extends AppCompatActivity {
         editHeight.setText(String.valueOf(user.getHeight()));
         editWeight.setText(String.valueOf(user.getWeight()));
         editAge.setText(user.getAge());
+
         if (user.getPfp().equals("null"))
         {
             profilePic.setImageResource(R.mipmap.ic_launcher_round);

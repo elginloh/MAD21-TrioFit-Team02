@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //finding all the edit text
         TextView login = findViewById(R.id.login);
         login.setTextColor(Color.BLUE);
         etUsername = findViewById(R.id.username);
@@ -50,15 +51,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //Get user input
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 String email = etEmail.getText().toString();
                 String number = etNumber.getText().toString();
-
                 String age = etAge.getText().toString();
-
-
                 String confirmPassword = etCfmPassword.getText().toString();
+
 
                 // if password is same as confirm password
                 if (password.equals(confirmPassword))
@@ -157,6 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
             {
                 // create user object and store data in
 //                UserData users = new UserData(username,password,email,age,height,weight,bmi,number);
+                
                 //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).child("username").setValue(username);
                 mDatabase.child("User").child(username).child("password").setValue(password);
