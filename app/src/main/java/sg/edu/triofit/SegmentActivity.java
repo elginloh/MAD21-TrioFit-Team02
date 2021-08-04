@@ -3,6 +3,7 @@ package sg.edu.triofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,13 +55,20 @@ public class SegmentActivity extends YouTubeBaseActivity {
         };
         //with the correct key, the video will play
         youtubePlayerView.initialize("AIzaSyArsX82MHSKkv3iGbZ9Ywu8KCOIfmvI-7w", onInitializedListener);
-        Button btn =  findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
+        //variable
+        TextView back;
+
+        //retrieve from layout
+        back = findViewById(R.id.profileBack6);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SegmentActivity.this, CatalogueActivity.class);
                 startActivity(intent);
+                finish();
+
             }
+
         });
     }
 }
