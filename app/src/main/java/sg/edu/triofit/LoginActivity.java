@@ -58,27 +58,16 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EditText etUsername = findViewById(R.id.loginName);
-//                EditText etPassword = findViewById(R.id.loginPassword);
-//                if (isValidCredentials(etUsername.getText().toString(), etPassword.getText().toString())) {
-//                    Toast.makeText(LoginActivity.this, "Valid Credentials", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-//                }
                 //Get user input
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-
                 //call method
                 isUser(username,password);
-
-
             }
         });
 
     }
+
     //Check whether user is in firebase.
     private void isUser(String username,String password) {
 
