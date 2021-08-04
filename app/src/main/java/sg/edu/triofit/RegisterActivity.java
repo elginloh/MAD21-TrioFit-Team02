@@ -59,9 +59,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String age = etAge.getText().toString();
                 String confirmPassword = etCfmPassword.getText().toString();
 
+                //If Edit Text are empty
                 if (TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) || TextUtils.isEmpty(etAge.getText().toString())
                         || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()) || TextUtils.isEmpty(etNumber.getText().toString())
                 || TextUtils.isEmpty(etPassword.getText().toString()) ||  TextUtils.isEmpty(etCfmPassword.getText().toString())) {
+                    //Show Toast
                     Toast.makeText(RegisterActivity.this, "Please fill in all boxes", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -96,9 +98,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
-                // create user object and store data in
-//                UserData users = new UserData(username,password,email,age,height,weight,bmi,number);
-
                 //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).child("username").setValue(username);
                 mDatabase.child("User").child(username).child("password").setValue(password);
@@ -109,14 +108,11 @@ public class RegisterActivity extends AppCompatActivity {
                 mDatabase.child("User").child(username).child("bmi").setValue(bmi);
                 mDatabase.child("User").child(username).child("number").setValue(number);
                 mDatabase.child("User").child(username).child("imageUrl").setValue("null");
-//                mDatabase.child("User").child(username).child("defaultusername").setValue(username);
-//                mDatabase.child("User").child(username).setValue(users);
 
             }
 
 
         });
-
 
         //if user click on login it will bring them to the login page
         login.setOnClickListener(new View.OnClickListener() {
