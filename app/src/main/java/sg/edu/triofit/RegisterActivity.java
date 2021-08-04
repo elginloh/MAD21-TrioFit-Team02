@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //finding all the edit text
         TextView login = findViewById(R.id.login);
         login.setTextColor(Color.BLUE);
         etUsername = findViewById(R.id.username);
@@ -50,113 +51,54 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //Get user input
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 String email = etEmail.getText().toString();
                 String number = etNumber.getText().toString();
-
                 String age = etAge.getText().toString();
-
-
                 String confirmPassword = etCfmPassword.getText().toString();
 
-                // if password is same as confirm password
-                if (password.equals(confirmPassword))
-                {
-                    // if edit text is empty | All must be filled in
-                    if(TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) ||TextUtils.isEmpty(etAge.getText().toString())
-                            || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()) || TextUtils.isEmpty(etNumber.getText().toString()))
+                if (TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) || TextUtils.isEmpty(etAge.getText().toString())
+                        || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()) || TextUtils.isEmpty(etNumber.getText().toString())
+                || TextUtils.isEmpty(etPassword.getText().toString()) ||  TextUtils.isEmpty(etCfmPassword.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "Please fill in all boxes", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if (email.trim().matches(emailPattern)) //if email is in correct format
                     {
-                        Toast.makeText(RegisterActivity.this,"Please fill in all boxes", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        // if email is in correct format
-                        if (email.trim().matches(emailPattern)) //if email is in correct format
+                        if (etPassword.getText().toString().equals(etCfmPassword.getText().toString())) // if password matches cfm password
                         {
-                            if(etPassword.getText().toString().equals(etCfmPassword.getText().toString())) // if password matches cfm password
-                            {
-                                float height = Float.parseFloat(etHeight.getText().toString());
-                                float weight = Float.parseFloat(etWeight.getText().toString());
-                                float bmi = weight / (height*height);
+                            float height = Float.parseFloat(etHeight.getText().toString());
+                            float weight = Float.parseFloat(etWeight.getText().toString());
+                            float bmi = weight / (height * height);
 
-                                //call method
-                                saveData(username,password,email,age,height,weight,bmi,number);
+                            //call method
+                            saveData(username, password, email, age, height, weight, bmi, number);
 
-                                Toast.makeText(RegisterActivity.this,"Register!",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                                startActivity(intent);
-                            }
-                            else
-                            {
-                                Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
-                            }
+                            Toast.makeText(RegisterActivity.this, "Register!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         }
-                        else
-                        {
-                            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+                        else {
+                            Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
                         }
                     }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else
-                {
-                    Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
-                }
-
-//                if(etPassword.getText().toString().equals((etCfmPassword.getText().toString())))
-//                {
-//                UserData userInfo = dbHandler.findUser(etUsername.getText().toString(), etEmail.getText().toString()); // retrieve user information/null
-//                if(TextUtils.isEmpty(etUsername.getText()) || TextUtils.isEmpty(etEmail.getText()) || TextUtils.isEmpty(etDOB.getText()) || TextUtils.isEmpty(etPassword.getText()) || TextUtils.isEmpty(etCfmPassword.getText())){
-//                    Toast.makeText(RegisterActivity.this, "Please fill in all boxes", Toast.LENGTH_SHORT).show();
-//                }
-//                else
-//                {
-//                    if (userInfo == null) // if username and email doesnt exist
-//                    {
-//                        if (etEmail.getText().toString().trim().matches(emailPattern))  // if email is in correct format
-//                        {
-//                            if(etPassword.getText().toString().equals(etCfmPassword.getText().toString())) // if password matches confirm password
-//                            {
-//                                String dbUsername = etUsername.getText().toString();
-//                                String dbEmail = etEmail.getText().toString();
-//                                String dbDOB = etDOB.getText().toString();
-//                                String dbPassword = etPassword.getText().toString();
-//                                UserData dbUserData = new UserData();
-//                                dbUserData.setUsername(dbUsername);
-//                                dbUserData.setEmail(dbEmail);
-//                                dbUserData.setDOB(dbDOB);
-//                                dbUserData.setPassword(dbPassword);
-//                                dbHandler.addUser(dbUserData);
-//                                Toast.makeText(RegisterActivity.this, "New User Created", Toast.LENGTH_SHORT).show();
-//                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-//                                startActivity(intent);
-//                            }
-//                            else
-//                            {
-//                                Toast.makeText(RegisterActivity.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                    }
-//                    else if (userInfo.getEmail().equals(etEmail.getText().toString()))
-//                    {
-//                        Toast.makeText(RegisterActivity.this, "Email is taken", Toast.LENGTH_SHORT).show();
-//                    }
-//                    else
-//                    {
-//                        Toast.makeText(RegisterActivity.this, "Username is taken", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
             }
+
+
+
+
 
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
                 // create user object and store data in
 //                UserData users = new UserData(username,password,email,age,height,weight,bmi,number);
+
                 //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).child("username").setValue(username);
                 mDatabase.child("User").child(username).child("password").setValue(password);
