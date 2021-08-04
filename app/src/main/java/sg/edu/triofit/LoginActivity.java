@@ -58,11 +58,15 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Get user input
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
+
                 //call method
                 isUser(username,password);
+
+
             }
         });
 
