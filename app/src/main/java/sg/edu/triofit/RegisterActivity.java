@@ -25,8 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference();
 
-    ProgressBar progressBar;
-    FirebaseAuth fAuth;
 
     EditText etUsername,etEmail,etHeight,etWeight,etAge,etPassword,etCfmPassword,etNumber;
     @Override
@@ -96,8 +94,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
-                // create user object and store data in
-//                UserData users = new UserData(username,password,email,age,height,weight,bmi,number);
 
                 //Save user object created to 'User' table in firebase
                 mDatabase.child("User").child(username).child("username").setValue(username);
@@ -109,9 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
                 mDatabase.child("User").child(username).child("bmi").setValue(bmi);
                 mDatabase.child("User").child(username).child("number").setValue(number);
                 mDatabase.child("User").child(username).child("imageUrl").setValue("null");
-//                mDatabase.child("User").child(username).child("defaultusername").setValue(username);
-//                mDatabase.child("User").child(username).setValue(users);
-
             }
 
 
