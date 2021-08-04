@@ -57,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String age = etAge.getText().toString();
                 String confirmPassword = etCfmPassword.getText().toString();
 
+                //if EditText is empty
                 if (TextUtils.isEmpty(etUsername.getText().toString()) || TextUtils.isEmpty(etEmail.getText().toString()) || TextUtils.isEmpty(etAge.getText().toString())
                         || TextUtils.isEmpty(etHeight.getText().toString()) || TextUtils.isEmpty(etWeight.getText().toString()) || TextUtils.isEmpty(etNumber.getText().toString())
                 || TextUtils.isEmpty(etPassword.getText().toString()) ||  TextUtils.isEmpty(etCfmPassword.getText().toString())) {

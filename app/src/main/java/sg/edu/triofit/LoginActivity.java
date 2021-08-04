@@ -32,15 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     // UserData class to store user data after login
     static UserData userInfo;
 
-//    DatabaseReference reference;
-    FirebaseAuth auth;
-    FirebaseUser user;
-    //test
-
-    //
-//    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-//    private DatabaseReference root = db.getReference().child("User");
-
     EditText etUsername,etPassword;
 
     @Override
@@ -91,8 +82,6 @@ public class LoginActivity extends AppCompatActivity {
     //Check whether user is in firebase.
     private void isUser(String username,String password) {
 
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("User");
-
         //Get data from firebase realtime database
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
         //Reference to user table
@@ -120,7 +109,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     passwordFromDB = snapshot.child(username).child("password").getValue(String.class);
                     nameFromDB =  snapshot.child(username).child("username").getValue(String.class);
-//                    defaultnameFromDB =  snapshot.child(username).child("defaultusername").getValue(String.class);
                     ageFromDB =  snapshot.child(username).child("age").getValue(String.class);
                     numberFromDB = snapshot.child(username).child("number").getValue(String.class);
                     emailFromDB =  snapshot.child(username).child("email").getValue(String.class);
@@ -140,7 +128,6 @@ public class LoginActivity extends AppCompatActivity {
 //
                         //Store data using variable that i created to UserData class.
                         //After user login, can use data from this class.
-
                         userInfo = new UserData(nameFromDB, passwordFromDB, emailFromDB, ageFromDB, heightFromDB, weightFromDB, BMIFromDB, numberFromDB, imageUrl);
                         startActivity(intent);
 
@@ -169,20 +156,5 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         //do nothing
     }
-
-    //this function is to check whether username and password both matches the database information
-//    public boolean isValidCredentials(String username, String password) {
-//        UserData dbData = dbHandler.findUser(username, "");
-//        if (dbData == null) {
-//            Toast.makeText(this, "User does not exist. Please Sign Up", Toast.LENGTH_SHORT).show();
-//            return false;
-//        } else {
-//            if (dbData.getUsername().equals(username) && dbData.getPassword().equals(password)) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
-//    }
 
 }
