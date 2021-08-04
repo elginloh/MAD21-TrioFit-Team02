@@ -89,9 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
 
-
-
-
             private void saveData(String username,String password,String email,String age,Float height,Float weight,Float bmi,String number)
             {
 
