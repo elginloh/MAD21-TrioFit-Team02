@@ -25,8 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://mad21-triofit-team02-ab582-default-rtdb.asia-southeast1.firebasedatabase.app/");
     DatabaseReference mDatabase = firebaseDatabase.getReference();
 
-    ProgressBar progressBar;
-    FirebaseAuth fAuth;
 
     EditText etUsername,etEmail,etHeight,etWeight,etAge,etPassword,etCfmPassword,etNumber;
     @Override
