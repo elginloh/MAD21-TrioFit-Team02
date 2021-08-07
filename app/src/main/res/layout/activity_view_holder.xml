@@ -32,9 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="111dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/abs" />
 
-
-                android:src="@mipmap/ic_launcher" />
 
 
             <TextView
