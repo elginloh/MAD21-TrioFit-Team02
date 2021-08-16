@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8071AFD1"
+    android:background="?colorPrimary"
     tools:context=".Profile">
 
     <ScrollView
@@ -23,7 +23,7 @@
                 android:layout_width="172dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="36dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toStartOf="@+id/profile"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -42,6 +42,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/profilebtn" />
 
                     <TextView
@@ -78,7 +79,7 @@
                 android:layout_width="172dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="36dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -112,6 +113,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/mobile" />
 
                     <TextView
@@ -134,7 +136,7 @@
                 android:layout_width="368dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="17dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -153,6 +155,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/mail" />
 
                     <TextView
@@ -188,7 +191,7 @@
                 android:layout_width="172dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="23dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardview5"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -218,7 +221,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/age" />
+                        app:srcCompat="@drawable/age"
+                        app:tint="?colorOnPrimary" />
 
                     <TextView
                         android:id="@+id/accountAge"
@@ -241,7 +245,7 @@
                 android:layout_width="172dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="23dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -262,6 +266,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/bmi" />
 
                     <TextView
@@ -298,7 +303,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardview7"
@@ -317,6 +322,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/heights" />
 
                     <TextView
@@ -354,7 +360,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="25dp"
-                android:backgroundTint="#7B8BAF"
+                android:backgroundTint="?colorSecondary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -376,6 +382,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnPrimary"
                         app:srcCompat="@drawable/weights" />
 
                     <TextView
@@ -411,7 +418,7 @@
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#4863A0"
+                android:backgroundTint="?colorSecondaryVariant"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -498,6 +505,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:tint="?colorOnPrimary"
                 app:srcCompat="@drawable/edit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

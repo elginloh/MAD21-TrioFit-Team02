@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8071AFD1"
+    android:background="?colorPrimary"
     tools:context=".LoginActivity">
 
     <ScrollView
@@ -32,7 +32,7 @@
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/custom_buttom"
                 android:text="@string/login"
-                app:backgroundTint="#7B8BAF"
+                app:backgroundTint="?colorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +74,9 @@
                 android:drawableStart="@drawable/user"
                 android:drawablePadding="10dp"
                 android:ems="10"
+                android:textColorHint="?colorPrimaryVariant"
+                android:drawableTint="?colorPrimaryVariant"
+                android:textColor="@color/black"
                 android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
@@ -105,6 +108,9 @@
                 android:drawableStart="@drawable/lock"
                 android:drawablePadding="10dp"
                 android:ems="10"
+                android:textColorHint="?colorPrimaryVariant"
+                android:drawableTint="?colorPrimaryVariant"
+                android:textColor="@color/black"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"

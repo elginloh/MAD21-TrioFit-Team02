@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="verydarkpurple">#1F1A24</color>
+    <color name="lighterpurple">#332940</color>
+    <color name="gray">#888888</color>
+    <color name="darkgray">#222222</color>
+    <color name="lightbg">#8071AFD1</color>
+    <color name="button">#7B8BAF</color>
+    <color name="card">#4863A0</color>
 </resources>
